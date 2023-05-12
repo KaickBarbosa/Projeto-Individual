@@ -1,0 +1,127 @@
+.caixa_formulario {
+    width: 400px;
+    height: 500px;
+    color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+
+.cadastroPai1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 50%;
+    background-color: #dee6e2;
+}
+
+.cadastroPai2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 50%;
+    background-color: #006437;
+    box-shadow: -20px 0px 30px  rgb(104, 102, 102);
+    
+}
+
+.cadastroPai {
+    background-color: #08a15c;
+    display: flex;
+    height: 100%;
+}
+
+.caixa_formulario h1 {
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    width: 270px;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+.formulario button {
+    margin-top: 10px;
+    background: none;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    width: 120px;
+    align-self: center;
+    cursor: pointer;
+}
+
+.formulario button:hover {
+    transition: 0.3s all;
+    color: #35c119;
+}
+
+.formulario input {
+    border: none;
+    border-bottom: solid 1px black;
+    background: none;
+    color: white;
+    outline: 0;
+    text-align: center;
+}
+
+.formulario input:hover {
+
+    border-bottom: #fff solid 1px;
+    background-color: #494949;
+}
+
+.formulario input:focus {
+
+    border-bottom: #fff solid 1px;
+}
+
+.formulario input :focus:not(.focus-visible) {
+    outline: 0;
+}
+
+.formulario span {
+    font-size: 20px;
+}
+
+ li {
+    list-style: none;
+}
+
+.check:hover {
+    transition: 0.3s all;
+    color: #35c119;
+}
+
+.imgCadastro {
+    height: 100px;
+    width: 100px;
+}
+
+.txtCadastro {
+    text-align: center;
+}
+
+.txtCadastro h1 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.txtCadastro h2 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.txtCadastro h4 {
+    font-family: Arial, Helvetica, sans-serif;
+}
