@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro - Porkeiras</title>
-    <link rel="stylesheet" href="../Home/home.css">
-    <link rel="stylesheet" href="../Cadastro/formulario-estilo-cadastro.css">
+    <link rel="stylesheet" href="../CSS/Home.css">
+    <link rel="stylesheet" href="../CSS/Cadastro.css">
 </head>
 
 <body>
@@ -15,21 +15,18 @@
         <img src="../Mídia/Logo.png" class="imgLogo">
         <div class="container">
             <ul class="navBar">
-                <li> <a href="../Home/home.html">Home</a></li>
-                <li> <a href="">Login</a> </li>
-                <li id="aqui"><a href="cadastro.html"><b>Cadastro</b></a></li>
-                <li><a href="">***</a></li>
-                <li><a href="">***</a></li>
+                <li> <a href="Home.html">Home</a></li>
+                <li> <a href="Login.html">Login</a> </li>
+                <li id="aqui"><a href="Cadastro.html"><b>Cadastro</b></a></li>
             </ul>
         </div>
-
     </div>
 
     <div class="banner">
         <div class="cadastroPai">
             <div class="cadastroPai1">
                 <div class="txtCadastro">
-                    <h1>Cadastre-se para ter acesso a novas funcionalidades do site!</h1>
+                    <h1>Funcionalidades novas após o Cadastro!</h1> 
                     <h2>- Teste de Jogador:</h2>
                     <h4>Faça um teste de personalidade para descobrir que tipo de jogador seria!</h4>
                     <h2>- Torcedor:</h2>
@@ -45,8 +42,8 @@
                         <input id="email_input" type="email" placeholder="Seu E-mail">
                         <input id="senha_input" type="password" placeholder="Senha">
                         <input id="confirmacaoSenha_input" type="password" placeholder="Confirmar Senha">
-
                         <button onclick="cadastrar()">Cadastrar</button>
+                        <div style="color: rgb(255, 255, 255);">Já tem uma conta? <a href="Login.html" class="jaTenho"><b><u>Clique Aqui</u></b></a></div>
                         <li class="check">
                             <input type="checkbox">
                             <label><u>Concordo com os termos de uso.</u>
@@ -81,7 +78,7 @@
         } else if (senha !== confirmeSenha) {
             alert("Senhas diferentes")
         } else {
-            window.location = "file:///C:/Users/again/OneDrive/Documentos/faculdade/site%20sprint%202/FungiTech%20(2)/FungiTech/Login/login.html"
+            window.location = "file:///C:/Users/Aluno/Desktop/Arquivos%20Tempor%C3%A1rios/Porkeiras/HTML/Login.html"
         }
     }
 </script>

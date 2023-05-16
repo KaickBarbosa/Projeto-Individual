@@ -37,6 +37,7 @@
 
 .formulario {
     display: flex;
+    text-align: center;
     flex-direction: column;
     width: 270px;
     justify-content: space-evenly;
@@ -101,3 +102,13 @@
     height: 100px;
     width: 100px;
 }
+
+.naoTenho {
+    text-decoration: none;
+    color: #006437;
+}
+
+.naoTenho:hover {
+    color: #35c119;
+    transition: 0.3s all;
+} 

@@ -5,9 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="home.css">
-</head>
+    <title>Home - Porkeiras</title>
+    <link rel="stylesheet" href="../CSS/Home.css">
 </head>
 
 <body>
@@ -16,11 +15,9 @@
         <img src="../Mídia/Logo.png" class="imgLogo">
         <div class="container">
             <ul class="navBar">
-                <li><a href="home.html"><b>Home</b></a></li>
-                <li><a href="">***</a></li>
-                <li><a href="">***</a></li>
-                <li><a href="">***</a></li>
-                <li><a href="">***</a></li>
+                <li><a href="Home.html"><b>Home</b></a></li>
+                <li><a href="Login.html">Login</a></li>
+                <li><a href="Cadastro.html">Cadastro</a></li>
             </ul>
         </div>
     </div>
@@ -55,28 +52,38 @@
         </span>
     </div>
 
+    <div class="chamarCadastro">
+        <div class="chamarCadastroTxt">
+            <h1>Cadastre-se no site para ter acesso a novas funcionalidades!</h1>
+            <button onclick="cadastrar()">Ver mais</button>
+        </div>
+        <div class="chamarCadastroImg"></div>
+    </div>
     <div class="social">
         <div>
             <span class="nossoSis">Sobre Mim</span>
             <h4 class="nossoSis2">Um pouco sobre o Palmeiras na minha vida...
         </div>
-        <!-- <div class="container"> -->
-            <div class="sobremimPalm">
-                <div class="sobremimPalmTxt">
-                    Comecei a acompanhar o Palmeiras por volta de 2014, quando meu avô parava para assistir e eu acabava torcendo junto.
-                    Gosto muito de torcer, principalmente junto com meu avô, faz a experiência ser ainda melhor.
-                    Em 2018 fui com ele duas vezes ao estádio, foi muito bom, mas infelizmente depois da pandemia ele tem trabalhado
-                    bastante, por isso nunca fomos novamente juntos.
-                    Assistindo e acompanhando o Palmeiras eu me sinto bem, me trouxe vontade de praticar o esporte, até de me divertir
-                    bastante.
-                    Claro, sempre com respeito com relação ao assunto, me trouxe maior facilidade em ter assuntos para conversar,
-                    e ter algo que realmente me faça passar um tempo com meu avô, e as vezes até com meu Pai e irmão.
-                    Isso é de tamanha relevância, que na pandemia, enquanto meu avô era muito ocupado, foi o ano que menos acompanhei
-                    e assisti jogos.
-                </div>
-                <div class="sobremimPalmImg"></div>
+        <div class="sobremimPalm">
+            <div class="sobremimPalmTxt">
+                Comecei a acompanhar o Palmeiras por volta de 2014, quando meu avô parava para assistir e eu acabava
+                torcendo junto.
+                Gosto muito de torcer, principalmente junto com meu avô, faz a experiência ser ainda melhor.
+                Em 2018 fui com ele duas vezes ao estádio, foi muito bom, mas infelizmente depois da pandemia ele tem
+                trabalhado
+                bastante, por isso nunca fomos novamente juntos.
+                Assistindo e acompanhando o Palmeiras eu me sinto bem, me trouxe vontade de praticar o esporte, até de
+                me divertir
+                bastante.
+                Claro, sempre com respeito com relação ao assunto, me trouxe maior facilidade em ter assuntos para
+                conversar,
+                e ter algo que realmente me faça passar um tempo com meu avô, e as vezes até com meu Pai e irmão.
+                Isso é de tamanha relevância, que na pandemia, enquanto meu avô era muito ocupado, foi o ano que menos
+                acompanhei
+                e assisti jogos.
             </div>
-        <!-- </div> -->
+            <div class="sobremimPalmImg"></div>
+        </div>
     </div>
 
     <div class="footer">
@@ -89,3 +96,8 @@
 </body>
 
 </html>
+<script>
+    function cadastrar() {
+        window.location = "file:///C:/Users/Aluno/Desktop/Arquivos%20Tempor%C3%A1rios/Porkeiras/HTML/Cadastro.html"
+    }
+</script>
