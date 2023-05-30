@@ -1,0 +1,386 @@
+.geral {
+    display: flex;
+    width: 100vw;
+}
+
+.headerLateral {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    height: 100vh;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 3px solid #daa520;
+    background-image: linear-gradient(rgb(255, 255, 255), #006437, #006437);
+}
+
+.conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    position: relative;
+    top: 0;
+    left: 20%;
+    height: 100vh;
+    overflow: auto;
+    text-align: center;
+    background-color: #e6e1de;
+}
+
+button {
+    border: solid 2px #daa520;
+    height: 50px;
+    width: 150px;
+    font-family: monospace;
+    -webkit-text-stroke-width: 1px;
+    transition: all 0.3s ease-in-out;
+    margin-top: 5px;
+}
+
+button:hover {
+    transition: 0.3s all;
+    color: #35c119;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+button:hover>button:not(:hover) {
+    opacity: 0.5;
+}
+
+.logout {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: none;
+    color: white;
+    border-radius: 20px;
+    background-color: #006437;
+    height: 50px;
+    width: 180px;
+    font-size: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.logout:hover {
+    transition: 0.3s all;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.logout:hover>.logout:not(:hover) {
+    opacity: 0.5;
+}
+
+.imgLogout {
+    width: 40px;
+    height: 40px;
+}
+
+.buttonOp {
+    display: flex;
+    margin-top: 20px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button2 {
+    margin-top: 20px;
+}
+
+.headerLateral h3 {
+    color: white;
+    margin-top: 80px;
+}
+
+.jogo1Pai {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: auto;
+    height: auto;
+    box-shadow: 10px 15px 10px #444242;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 50px;
+}
+
+.jogo1Pai:hover {
+    transition: 0.3s all;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.jogo1Pai:hover>.jogo1Pai:not(:hover) {
+    opacity: 0.5;
+}
+
+.avisosjogo1 {
+    height: 270px;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: #daa520 solid 3px;
+    color: white;
+    background-color: #006437;
+}
+
+.jogo1 {
+    height: 280px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background: url(../imgs/fundoJogos.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-top: #daa520 solid 3px;
+    border-left: #daa520 solid 3px;
+    border-bottom: #daa520 solid 3px;
+    border-right: #ffffff solid 3px;
+}
+
+
+.inputJogadorPai {
+    color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    font-family: monospace;
+    -webkit-text-stroke-width: 1px;
+    font-size: 25px;
+    margin-bottom: 10px;
+    height: 40px;
+    border: #daa520 solid 3px;
+    text-align: center;
+}
+
+.inputJogadorPai input {
+    height: 100%;
+    -webkit-text-stroke-width: 0px;
+    background-color: #006437;
+    color: white;
+    border: none;
+    text-align: center;
+}
+
+.divAcertos {
+    height: 280px;
+    width: 340px;
+    background-color: #daa520;
+    border-right: #006437 solid 3px;
+    border-bottom: #006437 solid 3px;
+    border-top: #006437 solid 3px;
+    font-family: monospace;
+    font-size: 18px;
+}
+
+.jogo1Resultdo {
+    height: 280px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background-color: #006437;
+    border-top: #daa520 solid 3px;
+    border-left: #daa520 solid 3px;
+    border-bottom: #daa520 solid 3px;
+    border-right: #ffffff solid 3px;
+}
+
+.acertoErro {
+    margin-left: 15px;
+    height: auto;
+    width: 500px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-family: monospace;
+    -webkit-text-stroke-width: 1px;
+    font-size: 50px;
+}
+
+.acertoErro img {
+    height: 50px;
+}
+
+.emojiResultador {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.emojiResultador h4 {
+    font-family: monospace;
+    -webkit-text-stroke-width: 1px;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 20px;
+}
+
+.emojiResultador img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+
+.jogo2Pai {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: auto;
+    height: auto;
+    box-shadow: 10px 15px 10px #444242;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 50px;
+}
+
+.jogo2Pai:hover {
+    transition: 0.3s all;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.jogo2Pai:hover>.jogo2Pai:not(:hover) {
+    opacity: 0.5;
+}
+
+.cartola {
+    height: 515px;
+    width: 647px;
+    background: url(../imgs/campoFutebol.png);
+    background-repeat: repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+}
+
+.sorteioCartola {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background-color: #ffffff;
+    border: #daa520 solid 1px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    font-size: 11px;
+}
+
+.ajusteDivs {
+    display: flex;
+    width: 80%;
+    justify-content: space-evenly;
+}
+
+.cartola img {
+    height: 80px;
+}
+
+.nomeJogador {
+    height: 15px;
+    width: 100px;
+    border: #daa520 solid 2px;
+    background-color: white;
+    font-family: monospace;
+    -webkit-text-stroke-width: 1px;
+}
+
+.timeAdversario {
+    height: 258px;
+    width: 350px;
+    background: url(../imgs/campoAdversário.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-evenly;
+    border: #000000 solid 2px;
+}
+
+.ResultadoAoVivo {
+    height: 257px;
+    width: 350px;
+    background-color: #daa520;
+    border: #006437 solid 2px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+}
+
+.ajusteNomesIms {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.timeAdvAjustes {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: space-evenly;
+}
+
+.timeAdvAjustes span {
+    font-family: monospace;
+    font-size: 13px;
+    -webkit-text-stroke-width: 1px;
+    border-bottom: #ffffff solid 2px;
+}
+
+.forcaMaior {
+    font-size: 100px;
+    color: #006437;
+    font-family: monospace;
+    -webkit-text-stroke-width: 1px;
+}
+
+.forcaMenor {
+    font-size: 50px;
+    color: red;
+    font-family: monospace;
+    -webkit-text-stroke-width: 1px;
+}
+
+.forcaIgual {
+    font-size: 50px;
+    color: rgb(255, 255, 255);
+    font-family: monospace;
+    -webkit-text-stroke-width: 1px;
+}
+
+.imgVersus {
+    height: 100px;
+}

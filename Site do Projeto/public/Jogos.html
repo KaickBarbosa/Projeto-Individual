@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jogos - Porkeiras</title>
+  <link rel="stylesheet" href="./css/Jogos.css" />
+  <link rel="stylesheet" href="./css/Home.css" />
+</head>
+
+<body>
+  <div class="geral">
+    <div class="headerLateral">
+      <button class="logout" onclick="logout()">
+        <img src="./imgs/logout.png" class="imgLogout" /><b>SAIR</b>
+      </button>
+      <img src="./imgs/Logo.png" class="imgLogo" />
+      <h3>Olá, Aproveite o Site!</h3>
+      <div class="buttonOp">
+        <button onclick="Jogos()" class="button1">
+          Jogos
+        </button>
+        <button onclick="Torcedor()" class="button2">Torcedor</button>
+      </div>
+    </div>
+    <div class="conteudo">
+      <h1 style="color: #006437;">Aprenda e se divirta com o Palmeiras!</h1>
+      <img src="./imgs/jogadoresSemFundo.png" style="height: 300px; margin-bottom: 20px;">
+
+      <div class="jogo1Pai" id="jogo1Pai">
+        <div class="avisosjogo1">
+          <h5>
+            <span style="font-size: 25px;">Jogo 1: Adivinhe o máximo de jogadores que conseguir!</span> <br><br>
+            - Apenas Jogadores entre os 35 inscritos no brasileirão 2023. <br>
+            - Não coloque acentos, nem repita um jogador que já colocou. <br>
+            - Sempre inicie um nome com letra maiúscula. <br>
+            - Nenhum jogador está com nome/apelido composto, apenas 1 palavra por jogador.
+          </h5>
+          <button onclick="comecar()">Começar</button>
+        </div>
+      </div>
+
+      <div class="jogo2Pai" id="jogo2Pai">
+        <div class="avisosjogo1">
+          <h5>
+            <span style="font-size: 25px;">Jogo 2: Cartola da sorte!</span> <br><br>
+            - Sorteie um time adversário. <br>
+            - Sorteie seu time, posição por posição. <br>
+            - Cada jogador por posição possuí uma pontuação <br>
+            - A soma de todos os pontos do seu time da a "força" dele. <br>
+            - Se seu time tiver mais força que o adversário, você vence!
+          </h5>
+          <button onclick="comecar2()">Começar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+<script>
+  function Jogos() {
+    window.location =
+      "Jogos.html";
+  }
+
+  function Torcedor() {
+    window.location = "";
+  }
+
+  function logout() {
+    window.location =
+      "index.html";
+  }
+
+  var listaJogadores = [
+    'Artur', 'Breno', 'Tabata', 'Dudu', 'Endrick', 'Fabinho', 'Menino', 'Gilberto', 'Giovani', 'Garcia', 'Gomez', 'Ian', 'Jhon', 'Piquerez', 'Lopez', 'Ze', 'Naves', 'Kaique', 'Kevin', 'Leo', 'Luan', 'Guilherme', 'Lomba', 'Rocha', 'Mayke', 'Michel', 'Murilo', 'Lima', 'Navarro', 'Veiga', 'Richard', 'Rony', 'Vanderlan', 'Silvestre', 'Weverton',
+  ]
+
+  var listaEscrita = [
+
+  ]
+
+  function conferir() {
+    var jogadorInserido = jogador_input.value
+    jogador_input.value = ""
+
+    if (listaJogadores.indexOf(jogadorInserido) >= 0 && listaEscrita.indexOf(jogadorInserido) < 0) {
+      div_acertos.innerHTML += `${jogadorInserido}, `
+      listaEscrita.push(jogadorInserido)
+    }
+    else {
+      alert("ERRO, FIQUE ATENTO NAS DICAS E REGRAS DO JOGO!!!")
+    }
+
+    if (listaEscrita.length == 35) {
+      alert("Parabéns!!! Você encontrou todos os 35 jogadores")
+      finalizar()
+    }
+  }
+
+  function comecar() {
+    jogo1Pai.innerHTML = `
+    <div class="jogo1">
+            <div class="inputJogadorPai">
+              Nome do jogador: <input type="text" id="jogador_input">
+            </div>
+            <div>
+            <button onclick="conferir()">Conferir</button>
+            <button onclick="verRegras()">Ver Dicas/Regras</button>
+            </div>
+            <button onclick="finalizar()">Finalizar</button>
+        </div>
+        <div id="div_acertos" class="divAcertos">
+          <h3 style="font-family: monospace; font-size: 18px;">Jogadores corretamente conferidos: <br></h3>
+        </div>
+        `
+  }
+
+  function verRegras() {
+    alert("- Apenas Jogadores entre os 35 inscritos no brasileirão 2023. - Não coloque acentos, nem repita um jogador que já colocou. - Sempre inicie um nome com letra maiúscula. - Nenhum jogador está com nome/apelido composto, apenas 1 palavra por jogador.")
+  }
+
+  function finalizar() {
+    var acertosTotal = (listaEscrita.length)
+    var errosTotal = (listaJogadores.length) - (listaEscrita.length)
+    var acertosPorcento = (acertosTotal / (listaJogadores.length) * 100).toFixed(2)
+    var errosPorcento = (errosTotal / (listaJogadores.length) * 100).toFixed(2)
+
+    jogo1Pai.innerHTML = `
+    <div class="jogo1Resultdo" id="jogo1Resultado">
+      <div class="acertoErro"><img src="../Mídia/correto.png">: ${acertosPorcento}%(${acertosTotal})</div>
+      <div class="acertoErro"><img src="../Mídia/errado.png">: ${errosPorcento}%(${errosTotal})</div>
+    </div>
+    <div id="div_acertos" class="divAcertos">
+      <h3>Jogadores Totais: <br></h3>
+    </div>
+    `
+
+    div_acertos.innerHTML += `Artur, Breno, Tabata, Dudu, Endrick, Fabinho, Menino, Gilberto, Giovani, Garcia, Gomez, Ian, Jhon, Piquerez, Lopez, Ze, Naves, Kaique, Kevin, Leo, Luan, Guilherme, Lomba, Rocha, Mayke, Michel, Murilo, Lima, Navarro, Veiga, Richard, Rony, Vanderlan, Silvestre, Weverton.`
+
+    if (acertosPorcento < 40) {
+      jogo1Resultado.innerHTML += `
+        <div class="emojiResultador"><img src="../Mídia/triste.png">
+          <h4>Infelizmnte você não foi muito bem...</h4>
+        </div>
+      `
+    }
+    else if (acertosPorcento < 70) {
+      jogo1Resultado.innerHTML += `
+          <div class="emojiResultador"><img src="../Mídia/feliz.png">
+            <h4>Você foi bem, conhece o elenco!</h4>
+          </div>
+        `
+    }
+    else if (acertosPorcento < 100) {
+      jogo1Resultado.innerHTML += `
+            <div class="emojiResultador"><img src="../Mídia/festa.png">
+              <h4>Fantástico,<br>você conhece muitos jogadores!</h4>
+            </div>
+          `
+    }
+    else {
+      jogo1Resultado.innerHTML += `
+              <div class="emojiResultador"><img src="../Mídia/acertoCem.png">
+                <h4>Uau, você foi senscional,<br>simplesmente perfeito!</h4>
+              </div>
+            `
+    }
+  }
+
+  var listaGK = [
+    '<img src="../Mídia/weverton.png">', //10
+    '<img src="../Mídia/lomba.png">', //8
+    '<img src="../Mídia/silvestre.png">', //6
+    '<img src="../Mídia/kaique.png">', //4
+  ]
+
+  var listaLD = [
+    '<img src="../Mídia/marcosRocha.png">', //10
+    '<img src="../Mídia/mayke.png">', //8
+    '<img src="../Mídia/garcia.png">', //6
+    '<img src="../Mídia/gilberto.png">', //4
+  ]
+
+  var listaZAGD = [
+    '<img src="../Mídia/gomez.png">', //10
+    '<img src="../Mídia/naves.png">', //8
+  ]
+
+  var listaZAGE = [
+    '<img src="../Mídia/murilo.png">', //10
+    '<img src="../Mídia/luan.png">', //8
+  ]
+
+  var listaLE = [
+    '<img src="../Mídia/piquerez.png">', //10
+    '<img src="../Mídia/vanderlan.png">', //8
+    '<img src="../Mídia/ian.png">', //6
+  ]
+
+  var listaVOL1 = [
+    '<img src="../Mídia/zerafael.png">', //10
+    '<img src="../Mídia/fabinho.png">', //8
+    '<img src="../Mídia/jailson.png">', //6
+    '<img src="../Mídia/leo.png">', //4
+  ]
+
+  var listaVOL2 = [
+    '<img src="../Mídia/menino.png">', //10
+    '<img src="../Mídia/richard.png">', //8
+    '<img src="../Mídia/atuesta.png">', //6
+    '<img src="../Mídia/pedroLima.png">', //4
+  ]
+
+  var listaMei = [
+    '<img src="../Mídia/veiga.png">', //10
+    '<img src="../Mídia/luigi.png">', //8
+    '<img src="../Mídia/jhon.png">', //6
+  ]
+
+  var listaPD = [
+    '<img src="../Mídia/artur.png">', //10
+    '<img src="../Mídia/giovani.png">', //8
+    '<img src="../Mídia/tabata.png">', //6
+  ]
+
+  var listaPE = [
+    '<img src="../Mídia/dudu.png">', //10
+    '<img src="../Mídia/breno.png">', //8
+    '<img src="../Mídia/kevin.png">', //6
+  ]
+
+  var listaCA = [
+    '<img src="../Mídia/rony.png">', //10
+    '<img src="../Mídia/endrick.png">', //8
+    '<img src="../Mídia/flaco.png">', //6
+    '<img src="../Mídia/navarro.png">', //4
+  ]
+
+  var forcaTime = 0
+  var forcaAdv = 0
+
+  function comecar2() {
+    jogo2Pai.innerHTML = `
+      <div class="cartola">
+        <div class="ajusteDivs">
+          <div id="pe" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioPE()">Sortear</button></div>
+          <div id="ca" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioATA()">Sortear</button></div>
+          <div id="pd" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioPD()">Sortear</button></div>
+        </div>
+        <div class="ajusteDivs">
+          <div id="doisvol" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteio2VOL()">Sortear</button></div>
+          <div id="mei" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioMEI()">Sortear</button></div>
+          <div id="umvol" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteio1VOL()">Sortear</button></div>
+        </div>
+        <div class="ajusteDivs">
+          <div id="le" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioLE()">Sortear</button></div>
+          <div id="zage" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioZGE()">Sortear</button></div>
+          <div id="zagd" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioZGD()">Sortear</button></div>
+          <div id="ld" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioLD()">Sortear</button></div>
+        </div>
+        <div class="ajusteDivs">
+          <div id="goleiro" class=  "ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioGK()">Sortear</button></div>
+        </div>
+      </div>
+
+      <div class="resultadoPai">
+        <div class="timeAdversario" id="timeAdversario"><button onclick="sortearAdversário()">Sortear Adversário</button></div>
+        <div class="ResultadoAoVivo" id="div_aoVivo"><span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span></div>
+      </div>
+    `
+  }
+
+  function sorteioGK() {
+    if (forcaAdv == 0) {
+      alert("FAÇA PRIMEIRO O SORTEIO DO TIME ADVERSÁRIO")
+    }
+    else {
+
+      var aleatorio = parseInt(Math.random() * listaGK.length)
+
+      goleiro.innerHTML = `${listaGK[aleatorio]} <div class="nomeJogador" id="nomeJogador1"></div>`
+
+      if (aleatorio == 0) {
+        nomeJogador1.innerHTML = `Weverton`
+        forcaTime += 10
+      }
+      else if (aleatorio == 1) {
+        nomeJogador1.innerHTML = `M. Lomba`
+        forcaTime += 8
+      }
+      else if (aleatorio == 2) {
+        nomeJogador1.innerHTML = `V. Silvestre`
+        forcaTime += 6
+      }
+      else {
+        nomeJogador1.innerHTML = `Kaique`
+        forcaTime += 4
+      }
+
+      forcaTimeSpan.innerHTML = forcaTime
+    }
+
+    if (forcaTime > forcaAdv) {
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>`
+    }
+    else if (forcaAdv > forcaTime) {
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>`
+    }
+    else {
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>`
+    }
+  }
+
+
+  function sorteioZGD() {
+    if (forcaAdv == 0) {
+      alert("FAÇA PRIMEIRO O SORTEIO DO TIME ADVERSÁRIO")
+    }
+
+    else {
+
+      var aleatorio = parseInt(Math.random() * listaZAGD.length)
+
+      zagd.innerHTML = `${listaZAGD[aleatorio]} <div class="nomeJogador" id="nomeJogador2"></div>`
+
+      if (aleatorio == 0) {
+        nomeJogador2.innerHTML = `G. Gomez`
+        forcaTime += 10
+      }
+      else {
+        nomeJogador2.innerHTML = `Naves`
+        forcaTime += 8
+      }
+
+      forcaTimeSpan.innerHTML = forcaTime
+    }
+
+    if (forcaTime > forcaAdv) {
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>`
+    }
+    else if (forcaAdv > forcaTime) {
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>`
+    }
+    else {
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>`
+    }
+  }
+
+  function sorteioZGE() {
+    if (forcaAdv == 0) {
+      alert("FAÇA PRIMEIRO O SORTEIO DO TIME ADVERSÁRIO")
+    }
+
+    else {
+
+      var aleatorio = parseInt(Math.random() * listaZAGE.length)
+
+      zage.innerHTML = `${listaZAGE[aleatorio]} <div class="nomeJogador" id="nomeJogador3"></div>`
+
+      if (aleatorio == 0) {
+        nomeJogador3.innerHTML = `Murilo`
+        forcaTime += 10
+      }
+      else {
+        nomeJogador3.innerHTML = `Luan`
+        forcaTime += 8
+      }
+
+      forcaTimeSpan.innerHTML = forcaTime
+    }
+
+    if (forcaTime > forcaAdv) {
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>`
+    }
+    else if (forcaAdv > forcaTime) {
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>`
+    }
+    else {
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>`
+    }
+  }
+
+  function sorteioLD() {
+    if (forcaAdv == 0) {
+      alert("FAÇA PRIMEIRO O SORTEIO DO TIME ADVERSÁRIO")
+    }
+
+    else {
+
+      var aleatorio = parseInt(Math.random() * listaLD.length)
+
+      ld.innerHTML = `${listaLD[aleatorio]} <div class="nomeJogador" id="nomeJogador4"></div>`
+
+      if (aleatorio == 0) {
+        nomeJogador4.innerHTML = `M. Rocha`
+        forcaTime += 10
+      }
+      else if (aleatorio == 1) {
+        nomeJogador4.innerHTML = `Mayke`
+        forcaTime += 8
+      }
+      else if (aleatorio == 2) {
+        nomeJogador4.innerHTML = `Garcia`
+        forcaTime += 6
+      }
+      else {
+        nomeJogador4.innerHTML = `Gilberto`
+        forcaTime += 4
+      }
+
+      forcaTimeSpan.innerHTML = forcaTime
+    }
+
+    if (forcaTime > forcaAdv) {
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>`
+    }
+    else if (forcaAdv > forcaTime) {
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>`
+    }
+    else {
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>`
+    }
+  }
+
+  function sorteioLE() {
+    if (forcaAdv == 0) {
+      alert("FAÇA PRIMEIRO O SORTEIO DO TIME ADVERSÁRIO")
+    }
+
+    else {
+
+      var aleatorio = parseInt(Math.random() * listaLE.length)
+
+      le.innerHTML = `${listaLE[aleatorio]} <div class="nomeJogador" id="nomeJogador5"></div>`
+
+      if (aleatorio == 0) {
+        nomeJogador5.innerHTML = `Piquerez`
+        forcaTime += 10
+      }
+      else if (aleatorio == 1) {
+        nomeJogador5.innerHTML = `Vanderlan`
+        forcaTime += 8
+      }
+      else {
+        nomeJogador5.innerHTML = `Ian`
+        forcaTime += 6
+      }
+
+      forcaTimeSpan.innerHTML = forcaTime
+    }
+
+    if (forcaTime > forcaAdv) {
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>`
+    }
+    else if (forcaAdv > forcaTime) {
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>`
+    }
+    else {
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>`
+    }
+  }
+
+  function sorteio1VOL() {
+    if (forcaAdv == 0) {
+      alert("FAÇA PRIMEIRO O SORTEIO DO TIME ADVERSÁRIO")
+    }
+
+    else {
+
+      var aleatorio = parseInt(Math.random() * listaVOL1.length)
+
+      umvol.innerHTML = `${listaVOL1[aleatorio]} <div class="nomeJogador" id="nomeJogador6"></div>`
+
+      if (aleatorio == 0) {
+        nomeJogador6.innerHTML = `Zé Rafael`
+        forcaTime += 10
+      }
+      else if (aleatorio == 1) {
+        nomeJogador6.innerHTML = `Fabinho`
+        forcaTime += 8
+      }
+      else if (aleatorio == 2) {
+        nomeJogador6.innerHTML = `Jaílson`
+        forcaTime += 6
+      }
+      else {
+        nomeJogador6.innerHTML = `Léo`
+        forcaTime += 4
+      }
+
+      forcaTimeSpan.innerHTML = forcaTime
+    }
+
+    if (forcaTime > forcaAdv) {
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>`
+    }
+    else if (forcaAdv > forcaTime) {
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>`
+    }
+    else {
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>`
+    }
+  }
+
+  function sorteio2VOL() {
+    if (forcaAdv == 0) {
+      alert("FAÇA PRIMEIRO O SORTEIO DO TIME ADVERSÁRIO")
+    }
+
+    else {
+
+      var aleatorio = parseInt(Math.random() * listaVOL2.length)
+
+      doisvol.innerHTML = `${listaVOL2[aleatorio]} <div class="nomeJogador" id="nomeJogador7"></div>`
+
+      if (aleatorio == 0) {
+        nomeJogador7.innerHTML = `G. Menino`
+        forcaTime += 10
+      }
+      else if (aleatorio == 1) {
+        nomeJogador7.innerHTML = `Richard Ríos`
+        forcaTime += 8
+      }
+      else if (aleatorio == 2) {
+        nomeJogador7.innerHTML = `Atuesta`
+        forcaTime += 6
+      }
+      else {
+        nomeJogador7.innerHTML = `Pedro Lima`
+        forcaTime += 4
+      }
+
+      forcaTimeSpan.innerHTML = forcaTime
+    }
+
+    if (forcaTime > forcaAdv) {
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>`
+    }
+    else if (forcaAdv > forcaTime) {
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>`
+    }
+    else {
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>`
+    }
+  }
+
+  function sorteioMEI() {
+    if (forcaAdv == 0) {
+      alert("FAÇA PRIMEIRO O SORTEIO DO TIME ADVERSÁRIO")
+    }
+
+    else {
+
+      var aleatorio = parseInt(Math.random() * listaMei.length)
+
+      mei.innerHTML = `${listaMei[aleatorio]} <div class="nomeJogador" id="nomeJogador8"></div>`
+
+      if (aleatorio == 0) {
+        nomeJogador8.innerHTML = `Raphael Veiga`
+        forcaTime += 10
+      }
+      else if (aleatorio == 1) {
+        nomeJogador8.innerHTML = `L. Guilherme`
+        forcaTime += 8
+      }
+      else {
+        nomeJogador8.innerHTML = `Jhon Jhon`
+        forcaTime += 6
+      }
+
+      forcaTimeSpan.innerHTML = forcaTime
+    }
+
+    if (forcaTime > forcaAdv) {
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>`
+    }
+    else if (forcaAdv > forcaTime) {
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>`
+    }
+    else {
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>`
+    }
+  }
+
+  function sorteioPD() {
+    if (forcaAdv == 0) {
+      alert("FAÇA PRIMEIRO O SORTEIO DO TIME ADVERSÁRIO")
+    }
+
+    else {
+
+      var aleatorio = parseInt(Math.random() * listaPD.length)
+
+      pd.innerHTML = `${listaPD[aleatorio]} <div class="nomeJogador" id="nomeJogador9"></div>`
+
+      if (aleatorio == 0) {
+        nomeJogador9.innerHTML = `Artur`
+        forcaTime += 10
+      }
+      else if (aleatorio == 1) {
+        nomeJogador9.innerHTML = `Giovani`
+        forcaTime += 8
+      }
+      else {
+        nomeJogador9.innerHTML = `B. Tabata`
+        forcaTime += 6
+      }
+
+      forcaTimeSpan.innerHTML = forcaTime
+    }
+
+    if (forcaTime > forcaAdv) {
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>`
+    }
+    else if (forcaAdv > forcaTime) {
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>`
+    }
+    else {
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>`
+    }
+  }
+
+  function sorteioPE() {
+    if (forcaAdv == 0) {
+      alert("FAÇA PRIMEIRO O SORTEIO DO TIME ADVERSÁRIO")
+    }
+
+    else {
+
+      var aleatorio = parseInt(Math.random() * listaPE.length)
+
+      pe.innerHTML = `${listaPE[aleatorio]} <div class="nomeJogador" id="nomeJogador10"></div>`
+
+      if (aleatorio == 0) {
+        nomeJogador10.innerHTML = `Dudu`
+        forcaTime += 10
+      }
+      else if (aleatorio == 1) {
+        nomeJogador10.innerHTML = `Breno Lopes`
+        forcaTime += 8
+      }
+      else {
+        nomeJogador10.innerHTML = `Kevin`
+        forcaTime += 6
+      }
+
+      forcaTimeSpan.innerHTML = forcaTime
+    }
+
+    if (forcaTime > forcaAdv) {
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>`
+    }
+    else if (forcaAdv > forcaTime) {
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>`
+    }
+    else {
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>`
+    }
+  }
+
+  function sorteioATA() {
+    if (forcaAdv == 0) {
+      alert("FAÇA PRIMEIRO O SORTEIO DO TIME ADVERSÁRIO")
+    }
+
+    else {
+
+      var aleatorio = parseInt(Math.random() * listaCA.length)
+
+      ca.innerHTML = `${listaCA[aleatorio]} <div class="nomeJogador" id="nomeJogador11"></div>`
+
+      if (aleatorio == 0) {
+        nomeJogador11.innerHTML = `Rony`
+        forcaTime += 10
+      }
+      else if (aleatorio == 1) {
+        nomeJogador11.innerHTML = `Endrick`
+        forcaTime += 8
+      }
+      else if (aleatorio == 2) {
+        nomeJogador11.innerHTML = `Flaco López`
+        forcaTime += 6
+      }
+      else {
+        nomeJogador11.innerHTML = `R. Navarro`
+        forcaTime += 4
+      }
+
+      forcaTimeSpan.innerHTML = forcaTime
+    }
+
+    if (forcaTime > forcaAdv) {
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>`
+    }
+    else if (forcaAdv > forcaTime) {
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>`
+    }
+    else {
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>`
+    }
+  }
+
+  function sortearAdversário() {
+    timeAdversario.innerHTML = `
+      <div id="timeAdvGol" class="timeAdvAjustes"></div>
+      <div id="timeAdvZag" class="timeAdvAjustes"></div>
+      <div id="timeAdvMei" class="timeAdvAjustes"></div>
+      <div id="timeAdvAta" class="timeAdvAjustes"></div>
+    `
+    var goleiroAdv = parseInt(Math.random() * listaGK.length)
+    var lateraldAdv = parseInt(Math.random() * listaLD.length)
+    var lateraleAdv = parseInt(Math.random() * listaLE.length)
+    var zagueirodAdv = parseInt(Math.random() * listaZAGD.length)
+    var zagueiroeAdv = parseInt(Math.random() * listaZAGE.length)
+    var volanteumAdv = parseInt(Math.random() * listaVOL1.length)
+    var volantedoisAdv = parseInt(Math.random() * listaVOL2.length)
+    var meiaAdv = parseInt(Math.random() * listaMei.length)
+    var pontadAdv = parseInt(Math.random() * listaPD.length)
+    var pontaeAdv = parseInt(Math.random() * listaPE.length)
+    var centroavanteAdv = parseInt(Math.random() * listaCA.length)
+
+    if (goleiroAdv == 0) {
+      timeAdvGol.innerHTML += `<span>Weverton</span>`
+      forcaAdv += 10
+    }
+    else if (goleiroAdv == 1) {
+      timeAdvGol.innerHTML += `<span>M. Lomba</span>`
+      forcaAdv += 8
+    }
+    else if (goleiroAdv == 2) {
+      timeAdvGol.innerHTML += `<span>V. Silvestre</span>`
+      forcaAdv += 6
+    }
+    else {
+      timeAdvGol.innerHTML += `<span>Kaique</span>`
+      forcaAdv += 4
+    }
+    if (lateraleAdv == 0) {
+      timeAdvZag.innerHTML += `<span>Piquerez</span>`
+      forcaAdv += 10
+    }
+    else if (lateraleAdv == 1) {
+      timeAdvZag.innerHTML += `<span>Vanderlan</span>`
+      forcaAdv += 8
+    }
+    else {
+      timeAdvZag.innerHTML += `<span>Ian</span>`
+      forcaAdv += 6
+    }
+    if (zagueiroeAdv == 0) {
+      timeAdvZag.innerHTML += `<span>Murilo</span>`
+      forcaAdv += 10
+    }
+    else {
+      timeAdvZag.innerHTML += `<span>Luan</span>`
+      forcaAdv += 8
+    }
+    if (zagueirodAdv == 0) {
+      timeAdvZag.innerHTML += `<span>G. Gomez</span>`
+      forcaAdv += 10
+    }
+    else {
+      timeAdvZag.innerHTML += `<span>Naves</span>`
+      forcaAdv += 8
+    }
+
+    if (lateraldAdv == 0) {
+      timeAdvZag.innerHTML += `<span>M. Rocha</span>`
+      forcaAdv += 10
+    }
+    else if (lateraldAdv == 1) {
+      timeAdvZag.innerHTML += `<span>Mayke</span>`
+      forcaAdv += 8
+    }
+    else if (lateraldAdv == 2) {
+      timeAdvZag.innerHTML += `<span>Garcia</span>`
+      forcaAdv += 6
+    }
+    else {
+      timeAdvZag.innerHTML += `<span>Gilberto</span>`
+      forcaAdv += 4
+    }
+
+    if (volantedoisAdv == 0) {
+      timeAdvMei.innerHTML += `<span>G. menino</span>`
+      forcaAdv += 10
+    }
+    else if (volantedoisAdv == 1) {
+      timeAdvMei.innerHTML += `<span>Richard Ríos</span>`
+      forcaAdv += 8
+    }
+    else if (volantedoisAdv == 2) {
+      timeAdvMei.innerHTML += `<span>Atuesta</span>`
+      forcaAdv += 6
+    }
+    else {
+      timeAdvMei.innerHTML += `<span>Pedro Lima</span>`
+      forcaAdv += 4
+    }
+
+    if (meiaAdv == 0) {
+      timeAdvMei.innerHTML += `<span>Raphael Veiga</span>`
+      forcaAdv += 10
+    }
+    else if (meiaAdv == 1) {
+      timeAdvMei.innerHTML += `<span>Luís Guilherme</span>`
+      forcaAdv += 8
+    }
+    else {
+      timeAdvMei.innerHTML += `<span>Jhon Jhon</span>`
+      forcaAdv += 6
+    }
+
+    if (volanteumAdv == 0) {
+      timeAdvMei.innerHTML += `<span>Zé Rafael</span>`
+      forcaAdv += 10
+    }
+    else if (volanteumAdv == 1) {
+      timeAdvMei.innerHTML += `<span>Fabinho</span>`
+      forcaAdv += 8
+    }
+    else if (volanteumAdv == 2) {
+      timeAdvMei.innerHTML += `<span>Jaílson</span>`
+      forcaAdv += 6
+    }
+    else {
+      timeAdvMei.innerHTML += `<span>Léo</span>`
+      forcaAdv += 4
+    }
+
+    if (pontaeAdv == 0) {
+      timeAdvAta.innerHTML += `<span>Dudu</span>`
+      forcaAdv += 10
+    }
+    else if (pontaeAdv == 1) {
+      timeAdvAta.innerHTML += `<span>B. Lopes</span>`
+      forcaAdv += 8
+    }
+    else {
+      timeAdvAta.innerHTML += `<span>Kevin</span>`
+      forcaAdv += 6
+    }
+
+    if (centroavanteAdv == 0) {
+      timeAdvAta.innerHTML += `<span>Rony</span>`
+      forcaAdv += 10
+    }
+    else if (centroavanteAdv == 1) {
+      timeAdvAta.innerHTML += `<span>Endrick</span>`
+      forcaAdv += 8
+    }
+    else if (centroavanteAdv == 2) {
+      timeAdvAta.innerHTML += `<span>Flaco López</span>`
+      forcaAdv += 6
+    }
+    else {
+      timeAdvAta.innerHTML += `<span>R. Navarro</span>`
+      forcaAdv += 4
+    }
+    if (pontadAdv == 0) {
+      timeAdvAta.innerHTML += `<span>Artur</span>`
+      forcaAdv += 10
+    }
+    else if (pontadAdv == 1) {
+      timeAdvAta.innerHTML += `<span>Giovani</span>`
+      forcaAdv += 8
+    }
+    else {
+      timeAdvAta.innerHTML += `<span>B. Tabata</span>`
+      forcaAdv += 6
+    }
+
+    forcaAdvSpan.innerHTML = forcaAdv
+    if (forcaTime > forcaAdv) {
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>`
+    }
+    else if (forcaAdv > forcaTime) {
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>`
+    }
+    else {
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>`
+    }
+  }
+
+</script>
