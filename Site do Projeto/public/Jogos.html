@@ -131,8 +131,8 @@
 
     jogo1Pai.innerHTML = `
     <div class="jogo1Resultdo" id="jogo1Resultado">
-      <div class="acertoErro"><img src="../Mídia/correto.png">: ${acertosPorcento}%(${acertosTotal})</div>
-      <div class="acertoErro"><img src="../Mídia/errado.png">: ${errosPorcento}%(${errosTotal})</div>
+      <div class="acertoErro"><img src="./imgs/correto.png">: ${acertosPorcento}%(${acertosTotal})</div>
+      <div class="acertoErro"><img src="./imgs/errado.png">: ${errosPorcento}%(${errosTotal})</div>
     </div>
     <div id="div_acertos" class="divAcertos">
       <h3>Jogadores Totais: <br></h3>
@@ -143,28 +143,28 @@
 
     if (acertosPorcento < 40) {
       jogo1Resultado.innerHTML += `
-        <div class="emojiResultador"><img src="../Mídia/triste.png">
+        <div class="emojiResultador"><img src="./imgs/triste.png">
           <h4>Infelizmnte você não foi muito bem...</h4>
         </div>
       `
     }
     else if (acertosPorcento < 70) {
       jogo1Resultado.innerHTML += `
-          <div class="emojiResultador"><img src="../Mídia/feliz.png">
+          <div class="emojiResultador"><img src="./imgs/feliz.png">
             <h4>Você foi bem, conhece o elenco!</h4>
           </div>
         `
     }
     else if (acertosPorcento < 100) {
       jogo1Resultado.innerHTML += `
-            <div class="emojiResultador"><img src="../Mídia/festa.png">
+            <div class="emojiResultador"><img src="./imgs/festa.png">
               <h4>Fantástico,<br>você conhece muitos jogadores!</h4>
             </div>
           `
     }
     else {
       jogo1Resultado.innerHTML += `
-              <div class="emojiResultador"><img src="../Mídia/acertoCem.png">
+              <div class="emojiResultador"><img src="./imgs/acertoCem.png">
                 <h4>Uau, você foi senscional,<br>simplesmente perfeito!</h4>
               </div>
             `
@@ -172,72 +172,72 @@
   }
 
   var listaGK = [
-    '<img src="../Mídia/weverton.png">', //10
-    '<img src="../Mídia/lomba.png">', //8
-    '<img src="../Mídia/silvestre.png">', //6
-    '<img src="../Mídia/kaique.png">', //4
+    '<img src="./imgs/weverton.png">', //10
+    '<img src="./imgs/lomba.png">', //8
+    '<img src="./imgs/silvestre.png">', //6
+    '<img src="./imgs/kaique.png">', //4
   ]
 
   var listaLD = [
-    '<img src="../Mídia/marcosRocha.png">', //10
-    '<img src="../Mídia/mayke.png">', //8
-    '<img src="../Mídia/garcia.png">', //6
-    '<img src="../Mídia/gilberto.png">', //4
+    '<img src="./imgs/marcosRocha.png">', //10
+    '<img src="./imgs/mayke.png">', //8
+    '<img src="./imgs/garcia.png">', //6
+    '<img src="./imgs/gilberto.png">', //4
   ]
 
   var listaZAGD = [
-    '<img src="../Mídia/gomez.png">', //10
-    '<img src="../Mídia/naves.png">', //8
+    '<img src="./imgs/gomez.png">', //10
+    '<img src="./imgs/naves.png">', //8
   ]
 
   var listaZAGE = [
-    '<img src="../Mídia/murilo.png">', //10
-    '<img src="../Mídia/luan.png">', //8
+    '<img src="./imgs/murilo.png">', //10
+    '<img src="./imgs/luan.png">', //8
   ]
 
   var listaLE = [
-    '<img src="../Mídia/piquerez.png">', //10
-    '<img src="../Mídia/vanderlan.png">', //8
-    '<img src="../Mídia/ian.png">', //6
+    '<img src="./imgs/piquerez.png">', //10
+    '<img src="./imgs/vanderlan.png">', //8
+    '<img src="./imgs/ian.png">', //6
   ]
 
   var listaVOL1 = [
-    '<img src="../Mídia/zerafael.png">', //10
-    '<img src="../Mídia/fabinho.png">', //8
-    '<img src="../Mídia/jailson.png">', //6
-    '<img src="../Mídia/leo.png">', //4
+    '<img src="./imgs/zerafael.png">', //10
+    '<img src="./imgs/fabinho.png">', //8
+    '<img src="./imgs/jailson.png">', //6
+    '<img src="./imgs/leo.png">', //4
   ]
 
   var listaVOL2 = [
-    '<img src="../Mídia/menino.png">', //10
-    '<img src="../Mídia/richard.png">', //8
-    '<img src="../Mídia/atuesta.png">', //6
-    '<img src="../Mídia/pedroLima.png">', //4
+    '<img src="./imgs/menino.png">', //10
+    '<img src="./imgs/richard.png">', //8
+    '<img src="./imgs/atuesta.png">', //6
+    '<img src="./imgs/pedroLima.png">', //4
   ]
 
   var listaMei = [
-    '<img src="../Mídia/veiga.png">', //10
-    '<img src="../Mídia/luigi.png">', //8
-    '<img src="../Mídia/jhon.png">', //6
+    '<img src="./imgs/veiga.png">', //10
+    '<img src="./imgs/luigi.png">', //8
+    '<img src="./imgs/jhon.png">', //6
   ]
 
   var listaPD = [
-    '<img src="../Mídia/artur.png">', //10
-    '<img src="../Mídia/giovani.png">', //8
-    '<img src="../Mídia/tabata.png">', //6
+    '<img src="./imgs/artur.png">', //10
+    '<img src="./imgs/giovani.png">', //8
+    '<img src="./imgs/tabata.png">', //6
   ]
 
   var listaPE = [
-    '<img src="../Mídia/dudu.png">', //10
-    '<img src="../Mídia/breno.png">', //8
-    '<img src="../Mídia/kevin.png">', //6
+    '<img src="./imgs/dudu.png">', //10
+    '<img src="./imgs/breno.png">', //8
+    '<img src="./imgs/kevin.png">', //6
   ]
 
   var listaCA = [
-    '<img src="../Mídia/rony.png">', //10
-    '<img src="../Mídia/endrick.png">', //8
-    '<img src="../Mídia/flaco.png">', //6
-    '<img src="../Mídia/navarro.png">', //4
+    '<img src="./imgs/rony.png">', //10
+    '<img src="./imgs/endrick.png">', //8
+    '<img src="./imgs/flaco.png">', //6
+    '<img src="./imgs/navarro.png">', //4
   ]
 
   var forcaTime = 0
@@ -269,7 +269,7 @@
 
       <div class="resultadoPai">
         <div class="timeAdversario" id="timeAdversario"><button onclick="sortearAdversário()">Sortear Adversário</button></div>
-        <div class="ResultadoAoVivo" id="div_aoVivo"><span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span></div>
+        <div class="ResultadoAoVivo" id="div_aoVivo"><span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span><img src="./imgs/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span></div>
       </div>
     `
   }
@@ -305,13 +305,13 @@
     }
 
     if (forcaTime > forcaAdv) {
-      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>`
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span><img src="./imgs/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>`
     }
     else if (forcaAdv > forcaTime) {
-      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>`
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span><img src="./imgs/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>`
     }
     else {
-      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>`
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span><img src="./imgs/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>`
     }
   }
 
@@ -340,13 +340,13 @@
     }
 
     if (forcaTime > forcaAdv) {
-      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>`
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span><img src="./imgs/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>`
     }
     else if (forcaAdv > forcaTime) {
-      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>`
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span><img src="./imgs/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>`
     }
     else {
-      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>`
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span><img src="./imgs/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>`
     }
   }
 
@@ -374,13 +374,13 @@
     }
 
     if (forcaTime > forcaAdv) {
-      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>`
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span><img src="./imgs/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>`
     }
     else if (forcaAdv > forcaTime) {
-      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>`
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span><img src="./imgs/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>`
     }
     else {
-      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>`
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span><img src="./imgs/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>`
     }
   }
 
@@ -416,13 +416,13 @@
     }
 
     if (forcaTime > forcaAdv) {
-      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>`
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span><img src="./imgs/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>`
     }
     else if (forcaAdv > forcaTime) {
-      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>`
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span><img src="./imgs/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>`
     }
     else {
-      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>`
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span><img src="./imgs/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>`
     }
   }
 
@@ -454,13 +454,13 @@
     }
 
     if (forcaTime > forcaAdv) {
-      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>`
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span><img src="./imgs/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>`
     }
     else if (forcaAdv > forcaTime) {
-      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>`
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span><img src="./imgs/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>`
     }
     else {
-      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>`
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span><img src="./imgs/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>`
     }
   }
 
@@ -496,13 +496,13 @@
     }
 
     if (forcaTime > forcaAdv) {
-      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>`
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span><img src="./imgs/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>`
     }
     else if (forcaAdv > forcaTime) {
-      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>`
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span><img src="./imgs/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>`
     }
     else {
-      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>`
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span><img src="./imgs/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>`
     }
   }
 
@@ -538,13 +538,13 @@
     }
 
     if (forcaTime > forcaAdv) {
-      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>`
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span><img src="./imgs/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>`
     }
     else if (forcaAdv > forcaTime) {
-      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>`
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span><img src="./imgs/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>`
     }
     else {
-      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>`
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span><img src="./imgs/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>`
     }
   }
 
@@ -576,13 +576,13 @@
     }
 
     if (forcaTime > forcaAdv) {
-      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>`
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span><img src="./imgs/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>`
     }
     else if (forcaAdv > forcaTime) {
-      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>`
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span><img src="./imgs/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>`
     }
     else {
-      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>`
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span><img src="./imgs/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>`
     }
   }
 
@@ -614,13 +614,13 @@
     }
 
     if (forcaTime > forcaAdv) {
-      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>`
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span><img src="./imgs/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>`
     }
     else if (forcaAdv > forcaTime) {
-      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>`
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span><img src="./imgs/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>`
     }
     else {
-      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>`
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span><img src="./imgs/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>`
     }
   }
 
@@ -652,13 +652,13 @@
     }
 
     if (forcaTime > forcaAdv) {
-      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>`
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span><img src="./imgs/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>`
     }
     else if (forcaAdv > forcaTime) {
-      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>`
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span><img src="./imgs/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>`
     }
     else {
-      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>`
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span><img src="./imgs/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>`
     }
   }
 
@@ -694,13 +694,13 @@
     }
 
     if (forcaTime > forcaAdv) {
-      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>`
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span><img src="./imgs/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>`
     }
     else if (forcaAdv > forcaTime) {
-      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>`
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span><img src="./imgs/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>`
     }
     else {
-      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>`
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span><img src="./imgs/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>`
     }
   }
 
@@ -876,13 +876,13 @@
 
     forcaAdvSpan.innerHTML = forcaAdv
     if (forcaTime > forcaAdv) {
-      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>`
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span><img src="./imgs/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>`
     }
     else if (forcaAdv > forcaTime) {
-      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>`
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span><img src="./imgs/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>`
     }
     else {
-      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span><img src="../Mídia/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>`
+      div_aoVivo.innerHTML = `<span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span><img src="./imgs/versusIMG.png" class="imgVersus"/><span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>`
     }
   }
 
