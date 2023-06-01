@@ -334,6 +334,15 @@ button:hover>button:not(:hover) {
     justify-content: space-evenly;
     align-items: center;
     text-align: center;
+    flex-direction: column;
+}
+
+.aovivofilho {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
 }
 
 .ajusteNomesIms {
@@ -383,4 +392,31 @@ button:hover>button:not(:hover) {
 
 .imgVersus {
     height: 100px;
+}
+
+.placarGols {
+    background: url(../imgs/placarNovo2.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.placarFilho {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    width: 100px;
+    height: 25px;
+    margin-top: 15px;
+    margin-left: 6px;
+    color: white;
+    font-size: 20px;
+    font-family: monospace;
+    -webkit-text-stroke-width: 1px;
 }
