@@ -48,9 +48,11 @@
             <span style="font-size: 25px;">Jogo 2: Cartola da sorte!</span> <br><br>
             - Sorteie um time adversário. <br>
             - Sorteie seu time, posição por posição. <br>
-            - Cada jogador por posição possuí uma pontuação <br>
+            - Cada jogador por posição possuí uma pontuação. <br>
             - A soma de todos os pontos do seu time da a "força" dele. <br>
-            - Se seu time tiver mais força que o adversário, você vence!
+            - Se seu time tiver mais força que o adversário, você marca um gol. <br>
+            - Caso contrário, quem marca é o adversário, em caso de empate, ninguém marca. <br>
+            - Com 3 rodadas o jogo encerra, quem marcar mais gols, vence!
           </h5>
           <button onclick="comecar2()">Começar</button>
         </div>
@@ -284,6 +286,7 @@
             <img src="./imgs/versusIMG.png" class="imgVersus"/>
             <span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>
           </div>
+          <button onclick="timePronto()">Time Pronto</button>
         </div>
       </div>
     `
@@ -291,7 +294,7 @@
 
   function sorteioGK() {
     if (forcaAdv == 0) {
-      alert("FAÇA PRIMEIRO O SORTEIO DO TIME ADVERSÁRIO")
+      alert("FAÇA PRIMEIRO O SORTEIO DO TIME ADVERSÁRIO!!!")
     }
     else {
 
@@ -330,7 +333,9 @@
             <span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span>
             <img src="./imgs/versusIMG.png" class="imgVersus"/>
             <span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>
-          </div>`
+          </div>
+          <button onclick="timePronto()">Time Pronto</button>
+          `
       }
       else if (forcaAdv > forcaTime) {
         div_aoVivo.innerHTML = `<span id="span_gols" class ="placarGols">
@@ -343,7 +348,8 @@
             <span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span>
             <img src="./imgs/versusIMG.png" class="imgVersus"/>
             <span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>
-          </div>`
+          </div>
+          <button onclick="timePronto()">Time Pronto</button>`
       }
       else {
         div_aoVivo.innerHTML = `<span id="span_gols" class ="placarGols">
@@ -356,48 +362,11 @@
             <span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span>
             <img src="./imgs/versusIMG.png" class="imgVersus"/>
             <span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>
-          </div>`
+          </div>
+          <button onclick="timePronto()">Time Pronto</button>`
       }
 
       contadorTime++
-
-      if (contadorTime == 11) {
-        div_cartola.innerHTML = `
-      <div class="ajusteDivs">
-          <div id="pe" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioPE()">Sortear</button></div>
-          <div id="ca" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioATA()">Sortear</button></div>
-          <div id="pd" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioPD()">Sortear</button></div>
-        </div>
-        <div class="ajusteDivs">
-          <div id="doisvol" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteio2VOL()">Sortear</button></div>
-          <div id="mei" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioMEI()">Sortear</button></div>
-          <div id="umvol" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteio1VOL()">Sortear</button></div>
-        </div>
-        <div class="ajusteDivs">
-          <div id="le" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioLE()">Sortear</button></div>
-          <div id="zage" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioZGE()">Sortear</button></div>
-          <div id="zagd" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioZGD()">Sortear</button></div>
-          <div id="ld" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioLD()">Sortear</button></div>
-        </div>
-        <div class="ajusteDivs">
-          <div id="goleiro" class=  "ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioGK()">Sortear</button></div>
-          </div>
-          `
-        div_timeAdv.innerHTML = `
-      <button onclick="sortearAdversário()">Sortear Adversário</button>
-      `
-
-        if (forcaTime > forcaAdv) {
-          golsTime++
-        } else if (forcaAdv > forcaTime) {
-          golsAdv++
-        }
-        forcaTime = 0
-        forcaAdv = 0
-        contadorTime = 0
-      } else {
-
-      }
 
       span_gols.innerHTML = `
     <div class="placarFilho">
@@ -443,7 +412,8 @@
             <span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span>
             <img src="./imgs/versusIMG.png" class="imgVersus"/>
             <span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>
-          </div>`
+          </div>
+          <button onclick="timePronto()">Time Pronto</button>`
       }
       else if (forcaAdv > forcaTime) {
         div_aoVivo.innerHTML = `<span id="span_gols" class ="placarGols">
@@ -456,7 +426,8 @@
             <span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span>
             <img src="./imgs/versusIMG.png" class="imgVersus"/>
             <span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>
-          </div>`
+          </div>
+          <button onclick="timePronto()">Time Pronto</button>`
       }
       else {
         div_aoVivo.innerHTML = `<span id="span_gols" class ="placarGols">
@@ -469,46 +440,13 @@
             <span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span>
             <img src="./imgs/versusIMG.png" class="imgVersus"/>
             <span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>
-          </div>`
+          </div>
+          <button onclick="timePronto()">Time Pronto</button>`
       }
 
       contadorTime++
 
-      if (contadorTime == 11) {
-        div_cartola.innerHTML = `
-      <div class="ajusteDivs">
-          <div id="pe" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioPE()">Sortear</button></div>
-          <div id="ca" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioATA()">Sortear</button></div>
-          <div id="pd" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioPD()">Sortear</button></div>
-        </div>
-        <div class="ajusteDivs">
-          <div id="doisvol" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteio2VOL()">Sortear</button></div>
-          <div id="mei" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioMEI()">Sortear</button></div>
-          <div id="umvol" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteio1VOL()">Sortear</button></div>
-        </div>
-        <div class="ajusteDivs">
-          <div id="le" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioLE()">Sortear</button></div>
-          <div id="zage" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioZGE()">Sortear</button></div>
-          <div id="zagd" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioZGD()">Sortear</button></div>
-          <div id="ld" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioLD()">Sortear</button></div>
-        </div>
-        <div class="ajusteDivs">
-          <div id="goleiro" class=  "ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioGK()">Sortear</button></div>
-        </div>
-      `
-        div_timeAdv.innerHTML = `
-      <button onclick="sortearAdversário()">Sortear Adversário</button>
-      `
 
-        if (forcaTime > forcaAdv) {
-          golsTime++
-        } else if (forcaAdv > forcaTime) {
-          golsAdv++
-        }
-        forcaTime = 0
-        forcaAdv = 0
-        contadorTime = 0
-      }
 
       span_gols.innerHTML = `
       <div class="placarFilho">
@@ -553,7 +491,8 @@
             <span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span>
             <img src="./imgs/versusIMG.png" class="imgVersus"/>
             <span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>
-          </div>`
+          </div>
+          <button onclick="timePronto()">Time Pronto</button>`
       }
       else if (forcaAdv > forcaTime) {
         div_aoVivo.innerHTML = `<span id="span_gols" class ="placarGols">
@@ -566,7 +505,8 @@
             <span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span>
             <img src="./imgs/versusIMG.png" class="imgVersus"/>
             <span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>
-          </div>`
+          </div>
+          <button onclick="timePronto()">Time Pronto</button>`
       }
       else {
         div_aoVivo.innerHTML = `<span id="span_gols" class ="placarGols">
@@ -579,46 +519,13 @@
             <span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span>
             <img src="./imgs/versusIMG.png" class="imgVersus"/>
             <span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>
-          </div>`
+          </div>
+          <button onclick="timePronto()">Time Pronto</button>`
       }
 
       contadorTime++
 
-      if (contadorTime == 11) {
-        div_cartola.innerHTML = `
-      <div class="ajusteDivs">
-          <div id="pe" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioPE()">Sortear</button></div>
-          <div id="ca" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioATA()">Sortear</button></div>
-          <div id="pd" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioPD()">Sortear</button></div>
-        </div>
-        <div class="ajusteDivs">
-          <div id="doisvol" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteio2VOL()">Sortear</button></div>
-          <div id="mei" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioMEI()">Sortear</button></div>
-          <div id="umvol" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteio1VOL()">Sortear</button></div>
-        </div>
-        <div class="ajusteDivs">
-          <div id="le" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioLE()">Sortear</button></div>
-          <div id="zage" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioZGE()">Sortear</button></div>
-          <div id="zagd" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioZGD()">Sortear</button></div>
-          <div id="ld" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioLD()">Sortear</button></div>
-        </div>
-        <div class="ajusteDivs">
-          <div id="goleiro" class=  "ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioGK()">Sortear</button></div>
-        </div>
-      `
-        div_timeAdv.innerHTML = `
-      <button onclick="sortearAdversário()">Sortear Adversário</button>
-      `
 
-        if (forcaTime > forcaAdv) {
-          golsTime++
-        } else if (forcaAdv > forcaTime) {
-          golsAdv++
-        }
-        forcaTime = 0
-        forcaAdv = 0
-        contadorTime = 0
-      }
 
       span_gols.innerHTML = `
       <div class="placarFilho">
@@ -671,7 +578,8 @@
             <span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span>
             <img src="./imgs/versusIMG.png" class="imgVersus"/>
             <span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>
-          </div>`
+          </div>
+          <button onclick="timePronto()">Time Pronto</button>`
       }
       else if (forcaAdv > forcaTime) {
         div_aoVivo.innerHTML = `<span id="span_gols" class ="placarGols">
@@ -684,7 +592,8 @@
             <span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span>
             <img src="./imgs/versusIMG.png" class="imgVersus"/>
             <span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>
-          </div>`
+          </div>
+          <button onclick="timePronto()">Time Pronto</button>`
       }
       else {
         div_aoVivo.innerHTML = `<span id="span_gols" class ="placarGols">
@@ -697,46 +606,13 @@
             <span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span>
             <img src="./imgs/versusIMG.png" class="imgVersus"/>
             <span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>
-          </div>`
+          </div>
+          <button onclick="timePronto()">Time Pronto</button>`
       }
 
       contadorTime++
 
-      if (contadorTime == 11) {
-        div_cartola.innerHTML = `
-      <div class="ajusteDivs">
-          <div id="pe" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioPE()">Sortear</button></div>
-          <div id="ca" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioATA()">Sortear</button></div>
-          <div id="pd" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioPD()">Sortear</button></div>
-        </div>
-        <div class="ajusteDivs">
-          <div id="doisvol" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteio2VOL()">Sortear</button></div>
-          <div id="mei" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioMEI()">Sortear</button></div>
-          <div id="umvol" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteio1VOL()">Sortear</button></div>
-        </div>
-        <div class="ajusteDivs">
-          <div id="le" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioLE()">Sortear</button></div>
-          <div id="zage" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioZGE()">Sortear</button></div>
-          <div id="zagd" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioZGD()">Sortear</button></div>
-          <div id="ld" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioLD()">Sortear</button></div>
-        </div>
-        <div class="ajusteDivs">
-          <div id="goleiro" class=  "ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioGK()">Sortear</button></div>
-        </div>
-      `
-        div_timeAdv.innerHTML = `
-      <button onclick="sortearAdversário()">Sortear Adversário</button>
-      `
 
-        if (forcaTime > forcaAdv) {
-          golsTime++
-        } else if (forcaAdv > forcaTime) {
-          golsAdv++
-        }
-        forcaTime = 0
-        forcaAdv = 0
-        contadorTime = 0
-      }
 
       span_gols.innerHTML = `
       <div class="placarFilho">
@@ -785,7 +661,8 @@
             <span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span>
             <img src="./imgs/versusIMG.png" class="imgVersus"/>
             <span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>
-          </div>`
+          </div>
+          <button onclick="timePronto()">Time Pronto</button>`
       }
       else if (forcaAdv > forcaTime) {
         div_aoVivo.innerHTML = `<span id="span_gols" class ="placarGols">
@@ -798,7 +675,8 @@
             <span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span>
             <img src="./imgs/versusIMG.png" class="imgVersus"/>
             <span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>
-          </div>`
+          </div>
+          <button onclick="timePronto()">Time Pronto</button>`
       }
       else {
         div_aoVivo.innerHTML = `<span id="span_gols" class ="placarGols">
@@ -811,46 +689,13 @@
             <span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span>
             <img src="./imgs/versusIMG.png" class="imgVersus"/>
             <span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>
-          </div>`
+          </div>
+          <button onclick="timePronto()">Time Pronto</button>`
       }
 
       contadorTime++
 
-      if (contadorTime == 11) {
-        div_cartola.innerHTML = `
-      <div class="ajusteDivs">
-          <div id="pe" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioPE()">Sortear</button></div>
-          <div id="ca" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioATA()">Sortear</button></div>
-          <div id="pd" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioPD()">Sortear</button></div>
-        </div>
-        <div class="ajusteDivs">
-          <div id="doisvol" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteio2VOL()">Sortear</button></div>
-          <div id="mei" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioMEI()">Sortear</button></div>
-          <div id="umvol" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteio1VOL()">Sortear</button></div>
-        </div>
-        <div class="ajusteDivs">
-          <div id="le" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioLE()">Sortear</button></div>
-          <div id="zage" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioZGE()">Sortear</button></div>
-          <div id="zagd" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioZGD()">Sortear</button></div>
-          <div id="ld" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioLD()">Sortear</button></div>
-        </div>
-        <div class="ajusteDivs">
-          <div id="goleiro" class=  "ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioGK()">Sortear</button></div>
-        </div>
-      `
-        div_timeAdv.innerHTML = `
-      <button onclick="sortearAdversário()">Sortear Adversário</button>
-      `
 
-        if (forcaTime > forcaAdv) {
-          golsTime++
-        } else if (forcaAdv > forcaTime) {
-          golsAdv++
-        }
-        forcaTime = 0
-        forcaAdv = 0
-        contadorTime = 0
-      }
 
       span_gols.innerHTML = `
       <div class="placarFilho">
@@ -903,7 +748,8 @@
             <span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span>
             <img src="./imgs/versusIMG.png" class="imgVersus"/>
             <span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>
-          </div>`
+          </div>
+          <button onclick="timePronto()">Time Pronto</button>`
       }
       else if (forcaAdv > forcaTime) {
         div_aoVivo.innerHTML = `<span id="span_gols" class ="placarGols">
@@ -916,7 +762,8 @@
             <span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span>
             <img src="./imgs/versusIMG.png" class="imgVersus"/>
             <span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>
-          </div>`
+          </div>
+          <button onclick="timePronto()">Time Pronto</button>`
       }
       else {
         div_aoVivo.innerHTML = `<span id="span_gols" class ="placarGols">
@@ -929,46 +776,13 @@
             <span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span>
             <img src="./imgs/versusIMG.png" class="imgVersus"/>
             <span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>
-          </div>`
+          </div>
+          <button onclick="timePronto()">Time Pronto</button>`
       }
 
       contadorTime++
 
-      if (contadorTime == 11) {
-        div_cartola.innerHTML = `
-      <div class="ajusteDivs">
-          <div id="pe" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioPE()">Sortear</button></div>
-          <div id="ca" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioATA()">Sortear</button></div>
-          <div id="pd" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioPD()">Sortear</button></div>
-        </div>
-        <div class="ajusteDivs">
-          <div id="doisvol" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteio2VOL()">Sortear</button></div>
-          <div id="mei" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioMEI()">Sortear</button></div>
-          <div id="umvol" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteio1VOL()">Sortear</button></div>
-        </div>
-        <div class="ajusteDivs">
-          <div id="le" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioLE()">Sortear</button></div>
-          <div id="zage" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioZGE()">Sortear</button></div>
-          <div id="zagd" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioZGD()">Sortear</button></div>
-          <div id="ld" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioLD()">Sortear</button></div>
-        </div>
-        <div class="ajusteDivs">
-          <div id="goleiro" class=  "ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioGK()">Sortear</button></div>
-        </div>
-      `
-        div_timeAdv.innerHTML = `
-      <button onclick="sortearAdversário()">Sortear Adversário</button>
-      `
 
-        if (forcaTime > forcaAdv) {
-          golsTime++
-        } else if (forcaAdv > forcaTime) {
-          golsAdv++
-        }
-        forcaTime = 0
-        forcaAdv = 0
-        contadorTime = 0
-      }
 
       span_gols.innerHTML = `
       <div class="placarFilho">
@@ -1021,7 +835,8 @@
             <span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span>
             <img src="./imgs/versusIMG.png" class="imgVersus"/>
             <span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>
-          </div>`
+          </div>
+          <button onclick="timePronto()">Time Pronto</button>`
       }
       else if (forcaAdv > forcaTime) {
         div_aoVivo.innerHTML = `<span id="span_gols" class ="placarGols">
@@ -1034,7 +849,8 @@
             <span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span>
             <img src="./imgs/versusIMG.png" class="imgVersus"/>
             <span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>
-          </div>`
+          </div>
+          <button onclick="timePronto()">Time Pronto</button>`
       }
       else {
         div_aoVivo.innerHTML = `<span id="span_gols" class ="placarGols">
@@ -1047,46 +863,13 @@
             <span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span>
             <img src="./imgs/versusIMG.png" class="imgVersus"/>
             <span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>
-          </div>`
+          </div>
+          <button onclick="timePronto()">Time Pronto</button>`
       }
 
       contadorTime++
 
-      if (contadorTime == 11) {
-        div_cartola.innerHTML = `
-      <div class="ajusteDivs">
-          <div id="pe" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioPE()">Sortear</button></div>
-          <div id="ca" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioATA()">Sortear</button></div>
-          <div id="pd" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioPD()">Sortear</button></div>
-        </div>
-        <div class="ajusteDivs">
-          <div id="doisvol" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteio2VOL()">Sortear</button></div>
-          <div id="mei" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioMEI()">Sortear</button></div>
-          <div id="umvol" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteio1VOL()">Sortear</button></div>
-        </div>
-        <div class="ajusteDivs">
-          <div id="le" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioLE()">Sortear</button></div>
-          <div id="zage" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioZGE()">Sortear</button></div>
-          <div id="zagd" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioZGD()">Sortear</button></div>
-          <div id="ld" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioLD()">Sortear</button></div>
-        </div>
-        <div class="ajusteDivs">
-          <div id="goleiro" class=  "ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioGK()">Sortear</button></div>
-        </div>
-      `
-        div_timeAdv.innerHTML = `
-      <button onclick="sortearAdversário()">Sortear Adversário</button>
-      `
 
-        if (forcaTime > forcaAdv) {
-          golsTime++
-        } else if (forcaAdv > forcaTime) {
-          golsAdv++
-        }
-        forcaTime = 0
-        forcaAdv = 0
-        contadorTime = 0
-      }
 
       span_gols.innerHTML = `
       <div class="placarFilho">
@@ -1135,7 +918,8 @@
             <span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span>
             <img src="./imgs/versusIMG.png" class="imgVersus"/>
             <span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>
-          </div>`
+          </div>
+          <button onclick="timePronto()">Time Pronto</button>`
       }
       else if (forcaAdv > forcaTime) {
         div_aoVivo.innerHTML = `<span id="span_gols" class ="placarGols">
@@ -1148,7 +932,8 @@
             <span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span>
             <img src="./imgs/versusIMG.png" class="imgVersus"/>
             <span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>
-          </div>`
+          </div>
+          <button onclick="timePronto()">Time Pronto</button>`
       }
       else {
         div_aoVivo.innerHTML = `<span id="span_gols" class ="placarGols">
@@ -1161,46 +946,13 @@
             <span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span>
             <img src="./imgs/versusIMG.png" class="imgVersus"/>
             <span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>
-          </div>`
+          </div>
+          <button onclick="timePronto()">Time Pronto</button>`
       }
 
       contadorTime++
 
-      if (contadorTime == 11) {
-        div_cartola.innerHTML = `
-      <div class="ajusteDivs">
-          <div id="pe" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioPE()">Sortear</button></div>
-          <div id="ca" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioATA()">Sortear</button></div>
-          <div id="pd" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioPD()">Sortear</button></div>
-        </div>
-        <div class="ajusteDivs">
-          <div id="doisvol" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteio2VOL()">Sortear</button></div>
-          <div id="mei" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioMEI()">Sortear</button></div>
-          <div id="umvol" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteio1VOL()">Sortear</button></div>
-        </div>
-        <div class="ajusteDivs">
-          <div id="le" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioLE()">Sortear</button></div>
-          <div id="zage" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioZGE()">Sortear</button></div>
-          <div id="zagd" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioZGD()">Sortear</button></div>
-          <div id="ld" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioLD()">Sortear</button></div>
-        </div>
-        <div class="ajusteDivs">
-          <div id="goleiro" class=  "ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioGK()">Sortear</button></div>
-        </div>
-      `
-        div_timeAdv.innerHTML = `
-      <button onclick="sortearAdversário()">Sortear Adversário</button>
-      `
 
-        if (forcaTime > forcaAdv) {
-          golsTime++
-        } else if (forcaAdv > forcaTime) {
-          golsAdv++
-        }
-        forcaTime = 0
-        forcaAdv = 0
-        contadorTime = 0
-      }
 
       span_gols.innerHTML = `
       <div class="placarFilho">
@@ -1249,7 +1001,8 @@
             <span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span>
             <img src="./imgs/versusIMG.png" class="imgVersus"/>
             <span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>
-          </div>`
+          </div>
+          <button onclick="timePronto()">Time Pronto</button>`
       }
       else if (forcaAdv > forcaTime) {
         div_aoVivo.innerHTML = `<span id="span_gols" class ="placarGols">
@@ -1262,7 +1015,8 @@
             <span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span>
             <img src="./imgs/versusIMG.png" class="imgVersus"/>
             <span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>
-          </div>`
+          </div>
+          <button onclick="timePronto()">Time Pronto</button>`
       }
       else {
         div_aoVivo.innerHTML = `<span id="span_gols" class ="placarGols">
@@ -1275,46 +1029,13 @@
             <span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span>
             <img src="./imgs/versusIMG.png" class="imgVersus"/>
             <span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>
-          </div>`
+          </div>
+          <button onclick="timePronto()">Time Pronto</button>`
       }
 
       contadorTime++
 
-      if (contadorTime == 11) {
-        div_cartola.innerHTML = `
-      <div class="ajusteDivs">
-          <div id="pe" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioPE()">Sortear</button></div>
-          <div id="ca" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioATA()">Sortear</button></div>
-          <div id="pd" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioPD()">Sortear</button></div>
-        </div>
-        <div class="ajusteDivs">
-          <div id="doisvol" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteio2VOL()">Sortear</button></div>
-          <div id="mei" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioMEI()">Sortear</button></div>
-          <div id="umvol" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteio1VOL()">Sortear</button></div>
-        </div>
-        <div class="ajusteDivs">
-          <div id="le" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioLE()">Sortear</button></div>
-          <div id="zage" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioZGE()">Sortear</button></div>
-          <div id="zagd" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioZGD()">Sortear</button></div>
-          <div id="ld" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioLD()">Sortear</button></div>
-        </div>
-        <div class="ajusteDivs">
-          <div id="goleiro" class=  "ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioGK()">Sortear</button></div>
-        </div>
-      `
-        div_timeAdv.innerHTML = `
-      <button onclick="sortearAdversário()">Sortear Adversário</button>
-      `
 
-        if (forcaTime > forcaAdv) {
-          golsTime++
-        } else if (forcaAdv > forcaTime) {
-          golsAdv++
-        }
-        forcaTime = 0
-        forcaAdv = 0
-        contadorTime = 0
-      }
 
       span_gols.innerHTML = `
       <div class="placarFilho">
@@ -1363,7 +1084,8 @@
             <span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span>
             <img src="./imgs/versusIMG.png" class="imgVersus"/>
             <span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>
-          </div>`
+          </div>
+          <button onclick="timePronto()">Time Pronto</button>`
       }
       else if (forcaAdv > forcaTime) {
         div_aoVivo.innerHTML = `<span id="span_gols" class ="placarGols">
@@ -1376,7 +1098,8 @@
             <span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span>
             <img src="./imgs/versusIMG.png" class="imgVersus"/>
             <span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>
-          </div>`
+          </div>
+          <button onclick="timePronto()">Time Pronto</button>`
       }
       else {
         div_aoVivo.innerHTML = `<span id="span_gols" class ="placarGols">
@@ -1389,46 +1112,13 @@
             <span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span>
             <img src="./imgs/versusIMG.png" class="imgVersus"/>
             <span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>
-          </div>`
+          </div>
+          <button onclick="timePronto()">Time Pronto</button>`
       }
 
       contadorTime++
 
-      if (contadorTime == 11) {
-        div_cartola.innerHTML = `
-      <div class="ajusteDivs">
-          <div id="pe" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioPE()">Sortear</button></div>
-          <div id="ca" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioATA()">Sortear</button></div>
-          <div id="pd" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioPD()">Sortear</button></div>
-        </div>
-        <div class="ajusteDivs">
-          <div id="doisvol" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteio2VOL()">Sortear</button></div>
-          <div id="mei" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioMEI()">Sortear</button></div>
-          <div id="umvol" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteio1VOL()">Sortear</button></div>
-        </div>
-        <div class="ajusteDivs">
-          <div id="le" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioLE()">Sortear</button></div>
-          <div id="zage" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioZGE()">Sortear</button></div>
-          <div id="zagd" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioZGD()">Sortear</button></div>
-          <div id="ld" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioLD()">Sortear</button></div>
-        </div>
-        <div class="ajusteDivs">
-          <div id="goleiro" class=  "ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioGK()">Sortear</button></div>
-        </div>
-      `
-        div_timeAdv.innerHTML = `
-      <button onclick="sortearAdversário()">Sortear Adversário</button>
-      `
 
-        if (forcaTime > forcaAdv) {
-          golsTime++
-        } else if (forcaAdv > forcaTime) {
-          golsAdv++
-        }
-        forcaTime = 0
-        forcaAdv = 0
-        contadorTime = 0
-      }
 
       span_gols.innerHTML = `
       <div class="placarFilho">
@@ -1481,7 +1171,8 @@
             <span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span>
             <img src="./imgs/versusIMG.png" class="imgVersus"/>
             <span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>
-          </div>`
+          </div>
+          <button onclick="timePronto()">Time Pronto</button>`
       }
       else if (forcaAdv > forcaTime) {
         div_aoVivo.innerHTML = `<span id="span_gols" class ="placarGols">
@@ -1494,7 +1185,8 @@
             <span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span>
             <img src="./imgs/versusIMG.png" class="imgVersus"/>
             <span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>
-          </div>`
+          </div>
+          <button onclick="timePronto()">Time Pronto</button>`
       }
       else {
         div_aoVivo.innerHTML = `<span id="span_gols" class ="placarGols">
@@ -1507,46 +1199,13 @@
             <span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span>
             <img src="./imgs/versusIMG.png" class="imgVersus"/>
             <span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>
-          </div>`
+          </div>
+          <button onclick="timePronto()">Time Pronto</button>`
       }
 
       contadorTime++
 
-      if (contadorTime == 11) {
-        div_cartola.innerHTML = `
-      <div class="ajusteDivs">
-          <div id="pe" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioPE()">Sortear</button></div>
-          <div id="ca" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioATA()">Sortear</button></div>
-          <div id="pd" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioPD()">Sortear</button></div>
-        </div>
-        <div class="ajusteDivs">
-          <div id="doisvol" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteio2VOL()">Sortear</button></div>
-          <div id="mei" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioMEI()">Sortear</button></div>
-          <div id="umvol" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteio1VOL()">Sortear</button></div>
-        </div>
-        <div class="ajusteDivs">
-          <div id="le" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioLE()">Sortear</button></div>
-          <div id="zage" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioZGE()">Sortear</button></div>
-          <div id="zagd" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioZGD()">Sortear</button></div>
-          <div id="ld" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioLD()">Sortear</button></div>
-        </div>
-        <div class="ajusteDivs">
-          <div id="goleiro" class=  "ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioGK()">Sortear</button></div>
-        </div>
-      `
-        div_timeAdv.innerHTML = `
-      <button onclick="sortearAdversário()">Sortear Adversário</button>
-      `
 
-        if (forcaTime > forcaAdv) {
-          golsTime++
-        } else if (forcaAdv > forcaTime) {
-          golsAdv++
-        }
-        forcaTime = 0
-        forcaAdv = 0
-        contadorTime = 0
-      }
 
       span_gols.innerHTML = `
       <div class="placarFilho">
@@ -1739,7 +1398,8 @@
             <span id="forcaTimeSpan" class="forcaMaior">${forcaTime}</span>
             <img src="./imgs/versusIMG.png" class="imgVersus"/>
             <span id="forcaAdvSpan" class="forcaMenor">${forcaAdv}</span>
-          </div>`
+          </div>
+          <button onclick="timePronto()">Time Pronto</button>`
     }
     else if (forcaAdv > forcaTime) {
       div_aoVivo.innerHTML = `<span id="span_gols" class ="placarGols">
@@ -1752,7 +1412,8 @@
             <span id="forcaTimeSpan" class="forcaMenor">${forcaTime}</span>
             <img src="./imgs/versusIMG.png" class="imgVersus"/>
             <span id="forcaAdvSpan" class="forcaMaior">${forcaAdv}</span>
-          </div>`
+          </div>
+          <button onclick="timePronto()">Time Pronto</button>`
     }
     else {
       div_aoVivo.innerHTML = `<span id="span_gols" class ="placarGols">
@@ -1765,8 +1426,85 @@
             <span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span>
             <img src="./imgs/versusIMG.png" class="imgVersus"/>
             <span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>
-          </div>`
+          </div>
+          <button onclick="timePronto()">Time Pronto</button>`
     }
+  }
+
+  function timePronto() {
+
+    if (contadorTime == 11) {
+      contadorTime++
+      if (contadorTime == 12) {
+        div_cartola.innerHTML = `
+      <div class="ajusteDivs">
+          <div id="pe" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioPE()">Sortear</button></div>
+          <div id="ca" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioATA()">Sortear</button></div>
+          <div id="pd" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioPD()">Sortear</button></div>
+        </div>
+        <div class="ajusteDivs">
+          <div id="doisvol" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteio2VOL()">Sortear</button></div>
+          <div id="mei" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioMEI()">Sortear</button></div>
+          <div id="umvol" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteio1VOL()">Sortear</button></div>
+        </div>
+        <div class="ajusteDivs">
+          <div id="le" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioLE()">Sortear</button></div>
+          <div id="zage" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioZGE()">Sortear</button></div>
+          <div id="zagd" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioZGD()">Sortear</button></div>
+          <div id="ld" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioLD()">Sortear</button></div>
+        </div>
+        <div class="ajusteDivs">
+          <div id="goleiro" class=  "ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioGK()">Sortear</button></div>
+        </div>
+      `
+        div_timeAdv.innerHTML = `
+      <button onclick="sortearAdversário()">Sortear Adversário</button>
+      `
+
+        if (forcaTime > forcaAdv) {
+          golsTime++
+          div_cartola.innerHTML = `
+
+          `
+        } else if (forcaAdv > forcaTime) {
+          golsAdv++
+        }
+        forcaTime = 0
+        forcaAdv = 0
+        contadorTime = 0
+      }
+    } else {
+      alert("Erro! o time não está completo ainda, sorteie todos os jogadores.")
+    }
+
+    div_aoVivo.innerHTML = `<span id="span_gols" class ="placarGols">
+            <div class="placarFilho">
+            <span>${golsTime}</span>
+            <span>${golsAdv}</span>
+            </div>
+          </span>
+          <div class="aovivofilho">
+            <span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span>
+            <img src="./imgs/versusIMG.png" class="imgVersus"/>
+            <span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>
+          </div>
+          <button onclick="timePronto()">Time Pronto</button>`
+  }
+
+  function euqueroeuquero00() {
+    div_cartola.innerHTML = `
+    <div class="comemoracao">
+      <span id="span_gols" class ="placarGols">
+              <div class="placarFilho">
+              <span>${golsTime}</span>
+              <span>${golsAdv}</span>
+              </div>
+            </span>
+        <h2>GOOOOOOOOOOOL DO PALMEIRAS!!!</h2>
+        <h4>Marcamos 1 gol, continue assim que a vitória será nossa!</h4>
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmQxMjhjYTFmNjJjNWI3YzYwNjIxNzMxNTljMWYzMjUzNjdkYjUzOSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/R3QAUBfI6OWvMBaOrq/giphy.gif"/>
+      </div>
+    `
   }
 
 </script>

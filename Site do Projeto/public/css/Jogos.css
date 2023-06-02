@@ -123,7 +123,7 @@ button:hover>button:not(:hover) {
 }
 
 .avisosjogo1 {
-    height: 270px;
+    height: 290px;
     width: 600px;
     display: flex;
     flex-direction: column;
@@ -337,6 +337,10 @@ button:hover>button:not(:hover) {
     flex-direction: column;
 }
 
+.ResultadoAoVivo button {
+    border: #006437 solid 2px;
+}
+
 .aovivofilho {
     width: 100%;
     display: flex;
@@ -417,6 +421,56 @@ button:hover>button:not(:hover) {
     margin-left: 6px;
     color: white;
     font-size: 20px;
+    font-family: monospace;
+    -webkit-text-stroke-width: 1px;
+}
+
+.comemoracao {
+    background-color: #daa520;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    align-items: center;
+}
+
+.comemoracao img {
+    height: 50%;
+}
+
+.comemoracao h2 {
+    margin: 0;
+}
+
+.comemoracao h4 {
+    margin: 0;
+}
+
+.cartola .placarGols {
+    background: url(../imgs/placarNovo2.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 60px;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.cartola .placarFilho {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    width: 100px;
+    height: 25px;
+    margin-top: 25px;
+    margin-left:0px;
+    color: white;
+    font-size: 25px;
     font-family: monospace;
     -webkit-text-stroke-width: 1px;
 }
