@@ -69,7 +69,8 @@
   }
 
   function Torcedor() {
-    window.location = "";
+    window.location = 
+      "Torcedor.html";
   }
 
   function logout() {
@@ -148,6 +149,7 @@
         <div class="emojiResultador"><img src="./imgs/triste.png">
           <h4>Infelizmnte você não foi muito bem...</h4>
         </div>
+        <button onclick="FinalizarJogo1()">Finalizar</button>
       `
     }
     else if (acertosPorcento < 70) {
@@ -155,6 +157,7 @@
           <div class="emojiResultador"><img src="./imgs/feliz.png">
             <h4>Você foi bem, conhece o elenco!</h4>
           </div>
+          <button onclick="FinalizarJogo1()">Finalizar</button>
         `
     }
     else if (acertosPorcento < 100) {
@@ -162,6 +165,7 @@
             <div class="emojiResultador"><img src="./imgs/festa.png">
               <h4>Fantástico,<br>você conhece muitos jogadores!</h4>
             </div>
+            <button onclick="FinalizarJogo1()">Finalizar</button>
           `
     }
     else {
@@ -169,8 +173,24 @@
               <div class="emojiResultador"><img src="./imgs/acertoCem.png">
                 <h4>Uau, você foi senscional,<br>simplesmente perfeito!</h4>
               </div>
+              <button onclick="FinalizarJogo1()">Finalizar</button>
             `
     }
+  }
+
+  function FinalizarJogo1() {
+    jogo1Pai.innerHTML = `
+    <div class="avisosjogo1">
+          <h5>
+            <span style="font-size: 25px;">Jogo 1: Adivinhe o máximo de jogadores que conseguir!</span> <br><br>
+            - Apenas Jogadores entre os 35 inscritos no brasileirão 2023. <br>
+            - Não coloque acentos, nem repita um jogador que já colocou. <br>
+            - Sempre inicie um nome com letra maiúscula. <br>
+            - Nenhum jogador está com nome/apelido composto, apenas 1 palavra por jogador.
+          </h5>
+          <button onclick="comecar()">Começar</button>
+        </div>
+    `
   }
 
   var listaGK = [
@@ -241,12 +261,19 @@
     '<img src="./imgs/flaco.png">', //6
     '<img src="./imgs/navarro.png">', //4
   ]
-
+  
   var forcaTime = 0
   var golsTime = 0
   var forcaAdv = 0
   var golsAdv = 0
   var contadorTime = 0
+  var contadorRodadas = 0
+  var listaPlacarTime = [
+
+  ]
+  var listaPlacarAdv = [
+
+  ]
 
   function comecar2() {
     jogo2Pai.innerHTML = `
@@ -1432,35 +1459,12 @@
   }
 
   function timePronto() {
-
+    
     if (contadorTime == 11) {
       contadorTime++
+      listaPlacarTime.push(forcaTime)
+      listaPlacarAdv.push(forcaAdv)
       if (contadorTime == 12) {
-      //   jogo2Pai.innerHTML = `
-      // <div class="ajusteDivs">
-      //     <div id="pe" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioPE()">Sortear</button></div>
-      //     <div id="ca" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioATA()">Sortear</button></div>
-      //     <div id="pd" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioPD()">Sortear</button></div>
-      //   </div>
-      //   <div class="ajusteDivs">
-      //     <div id="doisvol" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteio2VOL()">Sortear</button></div>
-      //     <div id="mei" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioMEI()">Sortear</button></div>
-      //     <div id="umvol" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteio1VOL()">Sortear</button></div>
-      //   </div>
-      //   <div class="ajusteDivs">
-      //     <div id="le" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioLE()">Sortear</button></div>
-      //     <div id="zage" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioZGE()">Sortear</button></div>
-      //     <div id="zagd" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioZGD()">Sortear</button></div>
-      //     <div id="ld" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioLD()">Sortear</button></div>
-      //   </div>
-      //   <div class="ajusteDivs">
-      //     <div id="goleiro" class=  "ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioGK()">Sortear</button></div>
-      //   </div>
-      // `
-      //   div_timeAdv.innerHTML = `
-      // <button onclick="sortearAdversário()">Sortear Adversário</button>
-      // `
-
         if (forcaTime > forcaAdv) {
           golsTime++
           jogo2Pai.innerHTML = `
@@ -1474,6 +1478,7 @@
         <h2>GOOOOOOOOOOOL DO PALMEIRAS!!!</h2>
         <h4>Marcamos 1 gol, continue assim que a vitória será nossa!</h4>
         <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmQxMjhjYTFmNjJjNWI3YzYwNjIxNzMxNTljMWYzMjUzNjdkYjUzOSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/R3QAUBfI6OWvMBaOrq/giphy.gif"/>
+        <button onclick="continuarFinalizar()">Continuar</button>
       </div>
           `
         } else if (forcaAdv > forcaTime) {
@@ -1488,7 +1493,23 @@
             </span>
         <h2>GOL DO ADVERSÁRIO...</h2>
         <h4>Tomamos 1 gol, temos que reagir, senão perderemos o jogo...!</h4>
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjAwOWVlYmRhOGIyN2YxOGUyYTY4NjlhNjZlM2MwY2IxODVmNjk4ZCZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/h4lWX4setxo76CNZPx/giphy.gif"/>
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZDY0ZjJkOTM0ZTNmMTcxYzY3ZDY5N2FkNzBjZTFiZjI0ZTFjZjQ0YiZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/UQO9m8VESp2WZTZjTJ/giphy.gif"/>
+        <button onclick="continuarFinalizar()">Continuar</button>
+      </div>
+          `
+        } else {
+          jogo2Pai.innerHTML = `
+          <div class="comemoracao">
+      <span id="span_gols" class ="placarGols">
+              <div class="placarFilho">
+              <span>${golsTime}</span>
+              <span>${golsAdv}</span>
+              </div>
+            </span>
+        <h2>EMPATE DE FORÇAS!</h2>
+        <h4>Nenhum dos 2 marcaram gol, volte para o jogo!</h4>
+        <img src="https://media.giphy.com/media/1wrhyp8zjcPfD8ZSPq/giphy.gif"/>
+        <button onclick="continuarFinalizar()">Continuar</button>
       </div>
           `
         }
@@ -1499,18 +1520,144 @@
     } else {
       alert("Erro! o time não está completo ainda, sorteie todos os jogadores.")
     }
+  }
 
-    // div_aoVivo.innerHTML = `<span id="span_gols" class ="placarGols">
-    //         <div class="placarFilho">
-    //         <span>${golsTime}</span>
-    //         <span>${golsAdv}</span>
-    //         </div>
-    //       </span>
-    //       <div class="aovivofilho">
-    //         <span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span>
-    //         <img src="./imgs/versusIMG.png" class="imgVersus"/>
-    //         <span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>
-    //       </div>
-    //       <button onclick="timePronto()">Time Pronto</button>`
+  function continuarFinalizar() {
+    contadorRodadas++
+
+    var timeRodada1 = listaPlacarTime[0]
+    var timeRodada2 = listaPlacarTime[1]
+    var timeRodada3 = listaPlacarTime[2]
+
+    var advRodada1 = listaPlacarAdv[0]
+    var advRodada2 = listaPlacarAdv[1]
+    var advRodada3 = listaPlacarAdv[2]
+
+    var somaTime = timeRodada1 + timeRodada2 + timeRodada3
+    var somaAdv = advRodada1 + advRodada2 + advRodada3
+
+    if (contadorRodadas >= 3) {
+      if (golsTime > golsAdv) {
+        jogo2Pai.innerHTML = `
+          <div class="comemoracao">
+      <span id="span_gols" class ="placarGols">
+              <div class="placarFilho">
+              <span>${golsTime}</span>
+              <span>${golsAdv}</span>
+              </div>
+            </span>
+        <h2>VITÓRIA!</h2>
+        <h4>Final de Jogo, ao fim as 3 rodadas saímos vencedores! <br>
+          Rodada 1: ${timeRodada1}x${advRodada1} Rodada 2: ${timeRodada2}x${advRodada2} Rodada 3: ${timeRodada3}x${advRodada3} Total: ${somaTime}x${somaAdv}.  
+        </h4>
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmEyOTNmYmQ3NDU4NDE4Y2ZjYzYxMWRmMDU3NDgyZGI3MTAxZGI2ZCZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/XDFbcwHHtMTYEli6Db/giphy-downsized-large.gif"/>
+        <button onclick="FinalizarJogo2()">Finalizar</button>
+      </div>
+          `
+      } else if (golsAdv > golsTime) {
+        jogo2Pai.innerHTML = `
+          <div class="comemoracao">
+      <span id="span_gols" class ="placarGols">
+              <div class="placarFilho">
+              <span>${golsTime}</span>
+              <span>${golsAdv}</span>
+              </div>
+            </span>
+        <h2>DERROTA...</h2>
+        <h4>Final de Jogo, o adversário foi mais forte saímos derrotados. <br>
+          Rodada 1: ${timeRodada1}x${advRodada1} Rodada 2: ${timeRodada2}x${advRodada2} Rodada 3: ${timeRodada3}x${advRodada3} Total: ${somaTime}x${somaAdv}.  
+        </h4>
+        <img src="https://media.giphy.com/media/kZuhkW4YJMgZsruJ2i/giphy.gif"/>
+        <button onclick="FinalizarJogo2()">Finalizar</button>
+      </div>
+          `
+      } else {
+        jogo2Pai.innerHTML = `
+          <div class="comemoracao">
+      <span id="span_gols" class ="placarGols">
+              <div class="placarFilho">
+              <span>${golsTime}</span>
+              <span>${golsAdv}</span>
+              </div>
+            </span>
+        <h2>EMPATE.</h2>
+        <h4>Final de Jogo, os dois times foram muito bem, o equilíbrio reinou. <br>
+            Rodada 1: ${timeRodada1}x${advRodada1} Rodada 2: ${timeRodada2}x${advRodada2} Rodada 3: ${timeRodada3}x${advRodada3} Total: ${somaTime}x${somaAdv}.
+        </h4>
+        <img src="https://media.giphy.com/media/2kPMKTLCy70g769Tce/giphy.gif"/>
+        <button onclick="FinalizarJogo2()">Finalizar</button>
+      </div>
+          `
+      }
+    } else {
+      jogo2Pai.innerHTML = `
+      <div class="cartola" id="div_cartola">
+        <div class="ajusteDivs">
+          <div id="pe" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioPE()">Sortear</button></div>
+          <div id="ca" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioATA()">Sortear</button></div>
+          <div id="pd" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioPD()">Sortear</button></div>
+        </div>
+        <div class="ajusteDivs">
+          <div id="doisvol" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteio2VOL()">Sortear</button></div>
+          <div id="mei" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioMEI()">Sortear</button></div>
+          <div id="umvol" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteio1VOL()">Sortear</button></div>
+        </div>
+        <div class="ajusteDivs">
+          <div id="le" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioLE()">Sortear</button></div>
+          <div id="zage" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioZGE()">Sortear</button></div>
+          <div id="zagd" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioZGD()">Sortear</button></div>
+          <div id="ld" class="ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioLD()">Sortear</button></div>
+        </div>
+        <div class="ajusteDivs">
+          <div id="goleiro" class=  "ajusteNomesIms"><button class="sorteioCartola" onclick="sorteioGK()">Sortear</button></div>
+        </div>
+      </div>
+
+      <div class="resultadoPai">
+        <div class="timeAdversario" id="div_timeAdv"><button onclick="sortearAdversário()">Sortear Adversário</button></div>
+        <div class="ResultadoAoVivo" id="div_aoVivo">
+          <span id="span_gols" class ="placarGols">
+            <div class="placarFilho">
+            <span>${golsTime}</span>
+            <span>${golsAdv}</span>
+            </div>
+          </span>
+          <div class="aovivofilho">
+            <span id="forcaTimeSpan" class="forcaIgual">${forcaTime}</span>
+            <img src="./imgs/versusIMG.png" class="imgVersus"/>
+            <span id="forcaAdvSpan" class="forcaIgual">${forcaAdv}</span>
+          </div>
+          <button onclick="timePronto()">Time Pronto</button>
+        </div>
+      </div>
+    `
+    }
+  }
+
+  function FinalizarJogo2() {
+    contadorTime = 0
+    contadorRodadas = 0
+    forcaTime = 0
+    forcaAdv = 0
+    golsTime = 0
+    golsAdv = 0
+    listaPlacarTime = []
+    listaPlacarAdv = []
+
+    jogo2Pai.innerHTML = `
+    <div class="avisosjogo1">
+          <h5>
+            <span style="font-size: 25px;">Jogo 2: Cartola da sorte!</span> <br><br>
+            - Sorteie um time adversário. <br>
+            - Sorteie seu time, posição por posição. <br>
+            - Cada jogador por posição possuí uma pontuação. <br>
+            - A soma de todos os pontos do seu time da a "força" dele. <br>
+            - Se seu time tiver mais força que o adversário, você marca um gol. <br>
+            - Caso contrário, quem marca é o adversário, em caso de empate, ninguém marca. <br>
+            - Com 3 rodadas o jogo encerra, quem marcar mais gols, vence!
+          </h5>
+          <button onclick="comecar2()">Começar</button>
+        </div>
+    `
   }
 </script>

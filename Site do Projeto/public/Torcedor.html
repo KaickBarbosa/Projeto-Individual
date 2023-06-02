@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torcedor - Porkeiras</title>
+    <link rel="stylesheet" href="./css/Torcedor.css">
+    <link rel="stylesheet" href="./css/Home.css">
+    <link rel="stylesheet" href="./css/Jogos.css">
+</head>
+<body>
+    <div class="geral">
+        <div class="headerLateral">
+          <button class="logout" onclick="logout()">
+            <img src="./imgs/logout.png" class="imgLogout" /><b>SAIR</b>
+          </button>
+          <img src="./imgs/Logo.png" class="imgLogo" />
+          <h3>Olá, Aproveite o Site!</h3>
+          <div class="buttonOp">
+            <button onclick="Jogos()" class="button1">Jogos</button>
+            <button onclick="Torcedor()" class="button2">Torcedor</button>
+          </div>
+        </div>
+        <div class="conteudo">
+          
+        </div>
+      </div>
+</body>
+</html>
+<script>
+    function Jogos() {
+    window.location =
+      "Jogos.html";
+  }
+
+  function Torcedor() {
+    window.location = 
+      "Torcedor.html";
+  }
+
+  function logout() {
+    window.location =
+      "index.html";
+  }
+</script>

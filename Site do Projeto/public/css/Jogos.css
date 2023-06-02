@@ -477,3 +477,8 @@ button:hover>button:not(:hover) {
     font-family: monospace;
     -webkit-text-stroke-width: 1px;
 }
+
+.comemoracao button {
+    border: #006437 solid 2px;
+    margin-top: 10px;
+}
