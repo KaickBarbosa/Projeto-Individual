@@ -43,9 +43,9 @@ button {
 
 button:hover {
     transition: 0.3s all;
-    color: #35c119;
     transform: scale(1.05);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: #35c119;
 }
 
 button:hover>button:not(:hover) {
