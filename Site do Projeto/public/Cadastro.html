@@ -73,7 +73,6 @@
 
     if (nome == "" || email == "" || senha == "" || confirmeSenha == "") {
         setInterval(sumirMensagem, 5000)
-
     }
         else if (email.indexOf('@') < 0) {
         setInterval(sumirMensagem, 5000)
@@ -117,6 +116,9 @@
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
         });
+
+        localStorage.setItem(Nome, JSON.stringify(nome));
+        localStorage.setItem(Email, JSON.stringify(email));
     }
 }
     function sumirMensagem() {
