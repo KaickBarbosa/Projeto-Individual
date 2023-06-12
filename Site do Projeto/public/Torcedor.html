@@ -26,28 +26,7 @@
     </div>
     <div class="conteudoTorcedor" id="div_conteudo">
       <div class="headerTorcedor">
-        <h4>FIQUE POR DENTRO DAS ATUALIZAÇÕES SOBRE O PALMEIRAS!</h4>
-      </div>
-      <div class="header2">
-        <button onclick="paginaPalmeiras()" class="buttonTorcedor">PALMEIRAS</button>
-        <button onclick="paginaUsuario()" class="buttonTorcedor">PERFIL</button>
-      </div>
-      <div class="conteudoFilho">
-        
-      </div>
-    </div>
-  </div>
-</body>
-
-</html>
-<script>
-  var nomeUsuario = localStorage.getItem(Nome);
-  var emailUsuario = localStorage.getItem(Email);
-
-  function paginaUsuario() {
-    div_conteudo.innerHTML = `
-    <div class="headerTorcedor">
-        <h4>CONFIRA SEU DESMPENHO E ANALISE SEU PERFIL!</h4>
+        <h4>CONFIRA SEU PERFIL E SEU DESEMPENHO NOS JOGOS!</h4>
       </div>
       <div class="header2">
         <button onclick="paginaPalmeiras()" class="buttonTorcedor">PALMEIRAS</button>
@@ -55,11 +34,31 @@
       </div>
       <div class="conteudoFilho">
         <div class="cardPerfil" id="teste_div">
-          Nome: <span id="spanNome">${nomeUsuario}</span> 
-          Email: <span id="spanEmail">${emailUsuario}</span>
+          <img src="./imgs/login_perfil.png">
+          <div>Nome: <span id="spanNome"></span></div> 
+          <div>Email: <span id="spanEmail"></span></div>
+          <button onclick="logout()">SAIR</button>
         </div>
+        
+        <div class="grafico1jogo1">
+          
+        </div>
+        <div class="grafico2jogo1"></div>
+        <div class="grafico1jogo2"></div>
+        <div class="grafico2jogo2"></div>
       </div>
-    `
+    </div>
+  </div>
+</body>
+
+</html>
+<script>
+  spanNome.innerHTML = sessionStorage.getItem('NOME_USUARIO');
+  spanEmail.innerHTML = sessionStorage.getItem('EMAIL_USUARIO');
+
+  function paginaPalmeiras() {
+    window.location =
+      "https://www.palmeiras.com.br/home/";
   }
 
   function Jogos() {

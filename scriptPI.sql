@@ -1,4 +1,5 @@
 create database Porkeiras;
+drop database Porkeiras;
 use Porkeiras;
 
 create table usuario (
@@ -27,6 +28,8 @@ create table resultados (
     derrotas int,
     acertosPorcent decimal(5,2),
     errosPorcent decimal(5,2),
+    golsMarcados int,
+    golsSofridos int,
     dataHora datetime,
 		constraint fkUsuario foreign key (fkUsuario)
 			references usuario(idUsuario),

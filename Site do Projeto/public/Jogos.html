@@ -176,7 +176,40 @@
               <button onclick="FinalizarJogo1()">Finalizar</button>
             `
     }
-  }
+
+    fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                acertosServer: nome,
+                errosServer: email,
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                // cardErro.style.display = "block";
+
+                // mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, "2000")
+
+                limparFormulario();
+
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+    }
 
   function FinalizarJogo1() {
     jogo1Pai.innerHTML = `
@@ -1536,6 +1569,10 @@
     var somaTime = timeRodada1 + timeRodada2 + timeRodada3
     var somaAdv = advRodada1 + advRodada2 + advRodada3
 
+    var vitoria = 0
+    var derrota = 0
+    var empate = 0
+
     if (contadorRodadas >= 3) {
       if (golsTime > golsAdv) {
         jogo2Pai.innerHTML = `
@@ -1554,6 +1591,7 @@
         <button onclick="FinalizarJogo2()">Finalizar</button>
       </div>
           `
+          vitoria ++
       } else if (golsAdv > golsTime) {
         jogo2Pai.innerHTML = `
           <div class="comemoracao">
@@ -1571,6 +1609,7 @@
         <button onclick="FinalizarJogo2()">Finalizar</button>
       </div>
           `
+          derrota ++
       } else {
         jogo2Pai.innerHTML = `
           <div class="comemoracao">
@@ -1588,6 +1627,7 @@
         <button onclick="FinalizarJogo2()">Finalizar</button>
       </div>
           `
+          empate ++
       }
     } else {
       jogo2Pai.innerHTML = `
@@ -1660,4 +1700,15 @@
         </div>
     `
   }
+
+
+
 </script>
+
+<!-- errosPorcento
+acertosPorcento
+vitoria
+empate
+derrota
+golsTime
+golsAdv -->

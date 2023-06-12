@@ -67,3 +67,68 @@
     justify-content: center;
     align-items: center;
 }
+
+.cardPerfil {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    align-items: center;
+    height: 300px;
+    width: 300px;
+    border-radius: 20px;
+    transition: all 0.3s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.425);
+}
+
+.cardPerfil img {
+    height: 100px;
+}
+
+.cardPerfil div {
+    font-family: monospace;
+    font-size: 20px;
+    -webkit-text-stroke-width: 1px;
+}
+
+.cardPerfil div span {
+    font-family: monospace;
+    -webkit-text-stroke-width: 1px;
+    font-size: 20px;
+}
+
+.cardPerfil button {
+    height: 45px;
+    width: 45px;
+    border-radius: 30px;
+}
+
+.cardPerfil:hover {
+    transition: 0.3s all;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.cardPerfil:hover>.cardPerfil:not(:hover) {
+    opacity: 0.5;
+}
+
+.grafico1jogo1 {
+    height: auto;
+    width: auto;
+}
+
+.grafico2jogo1 {
+    height: auto;
+    width: auto;
+}
+
+.grafico1jogo2 {
+    height: auto;
+    width: auto;
+}
+
+.grafico2jogo2 {
+    height: auto;
+    width: auto;
+}
