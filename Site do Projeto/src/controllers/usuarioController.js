@@ -100,7 +100,7 @@ function finalizar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo Jogos.html
     var acertosPorcento = req.body.acertosServer;
     var errosPorcento = req.body.errosServer;
-
+    var fkusuario = req.body.fkusuarioServer;
 
 
     // Faça as validações dos valores
@@ -111,7 +111,7 @@ function finalizar(req, res) {
     } else {
         
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.finalizar(acertosPorcento, errosPorcento)
+        usuarioModel.finalizar(acertosPorcento, errosPorcento, fkusuario)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -129,10 +129,40 @@ function finalizar(req, res) {
     }
 }
 
+function finalizarJogo2(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo Jogos.html
+    var vitorias = req.body.vitoriaServer;
+    var empates = req.body.empateServer;
+    var derrotas = req.body.derrotaServer;
+    var golsTime = req.body.golsTimeServer;
+    var golsAdv = req.body.golsAdvServer;
+    var fkusuario = req.body.fkusuarioServer;
+
+    // Faça as validações dos valores
+        
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.finalizarJogo2(vitorias, empates, derrotas, golsTime, golsAdv, fkusuario)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+}
+
 module.exports = {
     entrar,
     cadastrar,
     listar,
     testar,
-    finalizar
+    finalizar,
+    finalizarJogo2
 }
