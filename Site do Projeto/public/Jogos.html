@@ -132,6 +132,34 @@
     var acertosPorcento = (acertosTotal / (listaJogadores.length) * 100).toFixed(2)
     var errosPorcento = (errosTotal / (listaJogadores.length) * 100).toFixed(2)
 
+    fetch("/usuarios/finalizar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                acertosServer: acertosPorcento,
+                errosServer: errosPorcento,
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+
+                limparFormulario();
+
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+        return false;
+
     jogo1Pai.innerHTML = `
     <div class="jogo1Resultdo" id="jogo1Resultado">
       <div class="acertoErro"><img src="./imgs/correto.png">: ${acertosPorcento}%(${acertosTotal})</div>
@@ -175,40 +203,7 @@
               </div>
               <button onclick="FinalizarJogo1()">Finalizar</button>
             `
-    }
-
-    fetch("/usuarios/cadastrar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
-                acertosServer: nome,
-                errosServer: email,
-            })
-        }).then(function (resposta) {
-
-            console.log("resposta: ", resposta);
-
-            if (resposta.ok) {
-                // cardErro.style.display = "block";
-
-                // mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-                setTimeout(() => {
-                    window.location = "login.html";
-                }, "2000")
-
-                limparFormulario();
-
-            } else {
-                throw ("Houve um erro ao tentar realizar o cadastro!");
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-        });
+    } 
     }
 
   function FinalizarJogo1() {

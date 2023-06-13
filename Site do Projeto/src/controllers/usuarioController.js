@@ -95,8 +95,9 @@ function cadastrar(req, res) {
     }
 }
 
+
 function finalizar(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    // Crie uma variável que vá recuperar os valores do arquivo Jogos.html
     var acertosPorcento = req.body.acertosServer;
     var errosPorcento = req.body.errosServer;
 

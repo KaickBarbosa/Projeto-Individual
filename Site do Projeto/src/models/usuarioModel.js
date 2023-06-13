@@ -37,7 +37,7 @@ function finalizar(acertosPorcento, errosPorcento) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
-        INSERT INTO resultados (acertosPorcent, errosPorcent) VALUES ('${acertosPorcento}', '${errosPorcento}');
+        INSERT INTO resultados VALUES (null, 1, 1, null, null, '${acertosPorcento}', '${errosPorcento}', null, null, now());
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -47,5 +47,5 @@ module.exports = {
     entrar,
     cadastrar,
     listar,
-    finalizar,
+    finalizar
 };

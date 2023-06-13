@@ -16,6 +16,11 @@ router.post("/cadastrar", function (req, res) {
     usuarioController.cadastrar(req, res);
 })
 
+//Recebendo os dados do html e direcionando para a função finalizar de usuarioController.js (acertos e errosPercent)
+router.post("/finalizar", function (req, res) {
+    usuarioController.finalizar(req, res);
+})
+
 router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });
