@@ -25,6 +25,7 @@ create table resultados (
     fkUsuario int,
     fkJogos int,
     vitorias int,
+    empates int,
     derrotas int,
     acertosPorcent decimal(5,2),
     errosPorcent decimal(5,2),
