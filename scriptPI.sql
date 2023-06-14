@@ -42,3 +42,16 @@ create table resultados (
 select * from usuario;
 select * from jogos;
 select * from resultados;
+
+-- Porcentagem de acerto e de erro que o usuario possui.
+SELECT acertosPorcent FROM resultados WHERE fkUsuario = 2;
+SELECT errosPorcent FROM resultados WHERE fkUsuario = 2;
+
+-- Quantidade de vitorias, empates e derrotas no total do usuario.
+SELECT SUM(vitorias) FROM resultados WHERE fkUsuario = 2;
+SELECT SUM(empates) FROM resultados WHERE fkUsuario = 2;
+SELECT SUM(derrotas) FROM resultados WHERE fkUsuario = 2;
+
+-- Quantidade total de gols marcados e gols sofridos pelo usuario.
+SELECT SUM(golsMarcados) FROM resultados WHERE fkUsuario = 2;
+SELECT SUM(golsSofridos) FROM resultados WHERE fkUsuario = 2;
