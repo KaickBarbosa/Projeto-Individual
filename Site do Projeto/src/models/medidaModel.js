@@ -15,7 +15,7 @@ function buscarUltimasMedidas(idUsuario) {
                     order by id desc`;
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql = `
-        SELECT acertosPorcent FROM resultados WHERE fkUsuario = ${idUsuario}
+        SELECT acertosPorcent FROM resultados WHERE fkUsuario = 2;
         `;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");

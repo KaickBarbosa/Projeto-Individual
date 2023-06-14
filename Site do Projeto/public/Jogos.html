@@ -297,7 +297,9 @@
     '<img src="./imgs/flaco.png">', //6
     '<img src="./imgs/navarro.png">', //4
   ]
-  
+  var vitoria = 0
+  var derrota = 0
+  var empate = 0
   var forcaTime = 0
   var golsTime = 0
   var forcaAdv = 0
@@ -312,6 +314,18 @@
   ]
 
   function comecar2() {
+    contadorTime = 0
+    contadorRodadas = 0
+    forcaTime = 0
+    forcaAdv = 0
+    golsTime = 0
+    golsAdv = 0
+    listaPlacarTime = []
+    listaPlacarAdv = []
+    vitoria = 0
+    empate = 0
+    derrota = 0
+
     jogo2Pai.innerHTML = `
       <div class="cartola" id="div_cartola">
         <div class="ajusteDivs">
@@ -1557,9 +1571,7 @@
       alert("Erro! o time não está completo ainda, sorteie todos os jogadores.")
     }
   }
-  var vitoria = 0
-  var derrota = 0
-  var empate = 0
+ 
 
   function continuarFinalizar() {
     contadorRodadas++
